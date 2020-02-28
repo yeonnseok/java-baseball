@@ -1,21 +1,17 @@
 package domain;
 
 public class Computer {
-    private BallNumbers comBalls;
+    private BallNumbers computerBalls;
 
     public Computer(BallNumberGenerator ballNumberGenerator) {
-        this.comBalls = new BallNumbers(ballNumberGenerator);
+        this.computerBalls = new BallNumbers(ballNumberGenerator);
     }
 
     public int calculateStrikeCount(User user) {
-        return comBalls.getStrikeCount(user.getUserBalls());
+        return computerBalls.getStrikeCount(user.getUserBalls());
     }
 
     public int calculateBallCount(User user) {
-        return comBalls.getBallCount(user.getUserBalls());
-    }
-
-    public BallNumbers getBallNumbers() {
-        return comBalls;
+        return computerBalls.getBallCount(user.getUserBalls());
     }
 }

@@ -5,13 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class UserBallNumberGenerator implements BallNumberGenerator {
-
+public class ManualBallNumberGenerator implements BallNumberGenerator {
     private static final int START_INDEX = 0;
     private static final int BALL_SIZE = 3;
     private List<BallNumber> ballNumbers = new ArrayList<>();
 
-    public UserBallNumberGenerator(String numbers) {
+    public ManualBallNumberGenerator(String numbers) {
         checkNumberLength(numbers);
         createUserBallSize(numbers);
         checkDuplicatedNumber();

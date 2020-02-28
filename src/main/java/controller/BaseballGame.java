@@ -4,7 +4,7 @@ import domain.*;
 import view.InputView;
 import view.OutputView;
 
-public class BaseBallGame {
+public class BaseballGame {
     private Computer computer;
     private User user;
 
@@ -28,7 +28,7 @@ public class BaseBallGame {
     private void createUserWithInputValidation() {
         try {
             BallNumberGenerator ballNumberGenerator =
-                    new UserBallNumberGenerator(InputView.inputUserNumber());
+                    new ManualBallNumberGenerator(InputView.inputUserNumber());
             user = new User(ballNumberGenerator);
         } catch (IllegalArgumentException | NullPointerException e) {
             OutputView.printExceptionMessage(e);

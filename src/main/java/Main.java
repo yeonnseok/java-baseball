@@ -1,4 +1,4 @@
-import controller.BaseBallGame;
+import controller.BaseballGame;
 import domain.Flag;
 import view.InputView;
 import view.OutputView;
@@ -6,7 +6,7 @@ import view.OutputView;
 public class Main {
 
     public static void main(String[] args) {
-        BaseBallGame baseBallGame = new BaseBallGame();
+        BaseballGame baseBallGame = new BaseballGame();
         Flag restartFlag = Flag.RESTART;
         while (restartFlag != Flag.EXIT) {
             baseBallGame.play();

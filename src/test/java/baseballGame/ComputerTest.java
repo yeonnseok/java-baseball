@@ -2,7 +2,7 @@ package baseballGame;
 
 import domain.Computer;
 import domain.User;
-import domain.UserBallNumberGenerator;
+import domain.ManualBallNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +12,8 @@ public class ComputerTest {
     @Test
     @DisplayName("스트라이크 갯수 확인")
     void calculateStrikeCountTest() {
-        Computer computer = new Computer(new UserBallNumberGenerator("456"));
-        User user = new User(new UserBallNumberGenerator("654"));
+        Computer computer = new Computer(new ManualBallNumberGenerator("456"));
+        User user = new User(new ManualBallNumberGenerator("654"));
 
         int strike = computer.calculateStrikeCount(user);
         assertThat(strike).isEqualTo(1);
@@ -22,8 +22,8 @@ public class ComputerTest {
     @Test
     @DisplayName("볼 갯수 확인")
     void calculateBallCountTest() {
-        Computer computer = new Computer(new UserBallNumberGenerator("456"));
-        User user = new User(new UserBallNumberGenerator("654"));
+        Computer computer = new Computer(new ManualBallNumberGenerator("456"));
+        User user = new User(new ManualBallNumberGenerator("654"));
 
         int ball = computer.calculateBallCount(user);
         assertThat(ball).isEqualTo(2);
