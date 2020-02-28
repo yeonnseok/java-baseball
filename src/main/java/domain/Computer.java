@@ -3,9 +3,8 @@ package domain;
 public class Computer {
     private BallNumbers comBalls;
 
-    public Computer(BallNumbers comBalls) {
-        this.comBalls = comBalls;
+    public Computer(BallNumberGenerator ballNumberGenerator) {
+        this.comBalls = new BallNumbers(ballNumberGenerator);
     }
-
 
 }

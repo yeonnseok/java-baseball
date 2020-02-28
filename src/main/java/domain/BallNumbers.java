@@ -9,4 +9,8 @@ public class BallNumbers {
     public BallNumbers (BallNumberGenerator ballNumberGenerator) {
         ballNumbers.addAll(ballNumberGenerator.getNumbers());
     }
+
+    public int getSize() {
+        return ballNumbers.size();
+    }
 }

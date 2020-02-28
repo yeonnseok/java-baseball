@@ -37,4 +37,19 @@ public class BallNumber {
             throw new IllegalArgumentException("각 자리 숫자는 1~9까지로 이루어져야 합니다.");
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return this.number == ((BallNumber) o).number;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * number;
+    }
+
+    @Override
+    public String toString() {
+        return "" + number;
+    }
 }
