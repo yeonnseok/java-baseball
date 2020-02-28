@@ -11,7 +11,16 @@ public class BaseBallGame {
     public BaseBallGame() {
         BallNumberGenerator ballNumberGenerator = new RandomBallNumberGenerator();
         computer = new Computer(ballNumberGenerator);
-        createUserWithInputValidation();
+    }
+
+    public void play() {
+        boolean isCorrect = false;
+        while (!isCorrect) {
+            createUserWithInputValidation();
+            CountResult countResult = new CountResult(computer, user);
+
+            isCorrect = true;
+        }
     }
 
     private void createUserWithInputValidation() {
@@ -23,7 +32,6 @@ public class BaseBallGame {
             OutputView.printExceptionMessage(e);
             createUserWithInputValidation();
         }
-
     }
 
 }

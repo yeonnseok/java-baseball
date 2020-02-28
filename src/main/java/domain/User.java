@@ -6,4 +6,8 @@ public class User {
     public User(BallNumberGenerator ballNumberGenerator) {
         this.userBalls = new BallNumbers(ballNumberGenerator);
     }
+
+    public BallNumbers getUserBalls() {
+        return userBalls;
+    }
 }
