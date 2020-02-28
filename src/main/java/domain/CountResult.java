@@ -9,4 +9,11 @@ public class CountResult {
         this.ballCountResult = computer.calculateBallCount(user);
     }
 
+    public int getStrikeCountResult() {
+        return strikeCountResult;
+    }
+
+    public int getBallCountResult() {
+        return ballCountResult;
+    }
 }
