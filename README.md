@@ -17,10 +17,15 @@
 ### domain
 - Computer
 - User
-- NumberGenerator
+- BallNumberGenerator [interface]
+- RandomBallNumberGenerator
+- UserBallNumberGenerator
+- BallNumbers
+- CountResult
+- Flag [enum]
 
 ### controller
-- BaseballGame
+- BaseBallGame
 - Main
 
 ### view
