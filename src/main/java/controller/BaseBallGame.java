@@ -8,25 +8,27 @@ public class BaseBallGame {
     private Computer computer;
     private User user;
 
-    public BaseBallGame() {
+    public void play() {
         BallNumberGenerator ballNumberGenerator = new RandomBallNumberGenerator();
         computer = new Computer(ballNumberGenerator);
+        boolean isCorrect = false;
+        repeatUntilAnswerCorrect(isCorrect);
+        OutputView.printCorrectBallsMessage();
     }
 
-    public void play() {
-        boolean isCorrect = false;
+    private void repeatUntilAnswerCorrect(boolean isCorrect) {
         while (!isCorrect) {
             createUserWithInputValidation();
             CountResult countResult = new CountResult(computer, user);
-
-            isCorrect = true;
+            OutputView.printCountResultMessage(countResult);
+            isCorrect = countResult.isThreeStrike();
         }
     }
 
     private void createUserWithInputValidation() {
         try {
             BallNumberGenerator ballNumberGenerator =
-                    new UserBallNumberGenerator(InputView.inputUserNumberWithValidation());
+                    new UserBallNumberGenerator(InputView.inputUserNumber());
             user = new User(ballNumberGenerator);
         } catch (IllegalArgumentException | NullPointerException e) {
             OutputView.printExceptionMessage(e);

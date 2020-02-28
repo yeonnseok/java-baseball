@@ -20,4 +20,14 @@ public class CountResultTest {
         assertThat(countResult.getStrikeCountResult()).isEqualTo(1);
         assertThat(countResult.getBallCountResult()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("3 스트라이크인지 확인")
+    void isThreeStrikeTest() {
+        Computer computer = new Computer(new UserBallNumberGenerator("456"));
+        User user = new User(new UserBallNumberGenerator("456"));
+
+        CountResult countResult = new CountResult(computer, user);
+        assertThat(countResult.isThreeStrike()).isTrue();
+    }
 }
