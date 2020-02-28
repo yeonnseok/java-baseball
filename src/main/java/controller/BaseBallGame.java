@@ -1,6 +1,8 @@
 package controller;
 
 import domain.*;
+import view.InputView;
+import view.OutputView;
 
 public class BaseBallGame {
     private Computer computer;
@@ -9,9 +11,19 @@ public class BaseBallGame {
     public BaseBallGame() {
         BallNumberGenerator ballNumberGenerator = new RandomBallNumberGenerator();
         computer = new Computer(ballNumberGenerator);
+        createUserWithInputValidation();
+    }
 
-        ballNumberGenerator = new UserBallNumberGenerator("123");
-        user = new User(ballNumberGenerator);
+    private void createUserWithInputValidation() {
+        try {
+            BallNumberGenerator ballNumberGenerator =
+                    new UserBallNumberGenerator(InputView.inputUserNumberWithValidation());
+            user = new User(ballNumberGenerator);
+        } catch (IllegalArgumentException | NullPointerException e) {
+            OutputView.printExceptionMessage(e);
+            createUserWithInputValidation();
+        }
+
     }
 
 }
