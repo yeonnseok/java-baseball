@@ -6,9 +6,9 @@ public class CountResult {
     private int strike;
     private int ball;
 
-    public CountResult(final Computer computer, final User user) {
-        this.strike = computer.calculateStrikeCount(user);
-        this.ball = computer.calculateBallCount(user);
+    public CountResult(final ComputerNo computerNo, final UserNo userNo) {
+        this.strike = BallNumbers.calculateStrikeCount(computerNo.getBallNumbers(), userNo.getBallNumbers());
+        this.ball = BallNumbers.calculateBallCount(computerNo.getBallNumbers(), userNo.getBallNumbers());
     }
 
     public int getStrike() {

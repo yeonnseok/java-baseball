@@ -1,7 +1,7 @@
 package baseballGame;
 
-import domain.Computer;
-import domain.User;
+import domain.ComputerNo;
+import domain.UserNo;
 import domain.CountResult;
 import domain.ManualBallNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
@@ -13,10 +13,10 @@ public class CountResultTest {
     @Test
     @DisplayName("스트라이크와 볼 갯수 확인")
     void calculateStrikeCountTest() {
-        Computer computer = new Computer(new ManualBallNumberGenerator("456"));
-        User user = new User(new ManualBallNumberGenerator("654"));
+        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator("456"));
+        UserNo userNo = new UserNo(new ManualBallNumberGenerator("654"));
 
-        CountResult countResult = new CountResult(computer, user);
+        CountResult countResult = new CountResult(computerNo, userNo);
         assertThat(countResult.getStrike()).isEqualTo(1);
         assertThat(countResult.getBall()).isEqualTo(2);
     }
@@ -24,10 +24,10 @@ public class CountResultTest {
     @Test
     @DisplayName("3 스트라이크인지 확인")
     void isThreeStrikeTest() {
-        Computer computer = new Computer(new ManualBallNumberGenerator("456"));
-        User user = new User(new ManualBallNumberGenerator("456"));
+        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator("456"));
+        UserNo userNo = new UserNo(new ManualBallNumberGenerator("456"));
 
-        CountResult countResult = new CountResult(computer, user);
+        CountResult countResult = new CountResult(computerNo, userNo);
         assertThat(countResult.isThreeStrike()).isTrue();
     }
 }

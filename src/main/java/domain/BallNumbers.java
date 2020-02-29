@@ -4,49 +4,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BallNumbers {
+    private static final int INITIAL_COUNT = 0;
+    public static final int BALL_SIZE = 3;
     private List<BallNumber> ballNumbers = new ArrayList<>();
 
     public BallNumbers (final BallNumberGenerator ballNumberGenerator) {
         ballNumbers.addAll(ballNumberGenerator.getNumbers());
     }
 
+    public static int calculateStrikeCount(final BallNumbers computer, final BallNumbers user) {
+        int count = INITIAL_COUNT;
+        for (int index = 0; index < BALL_SIZE; index ++) {
+            count = increaseCountWhenStrike(computer, user, count, index);
+        }
+        return count;
+    }
+
+    private static int increaseCountWhenStrike(BallNumbers computer, BallNumbers user, int count, int index) {
+        if (isStrikeCondition(computer, user, index)) {
+            count ++;
+        }
+        return count;
+    }
+
+    private static boolean isStrikeCondition(BallNumbers computer, BallNumbers user, int index) {
+        return computer.getBall(index).equals(user.getBall(index));
+    }
+
+    public static int calculateBallCount(final BallNumbers computer, final BallNumbers user) {
+        int count = INITIAL_COUNT;
+        for (int index = 0; index < BALL_SIZE; index ++) {
+            count = increaseCountWhenBall(computer, user, count, index);
+        }
+        return count;
+    }
+
+    private static int increaseCountWhenBall(BallNumbers computer, BallNumbers user, int count, int index) {
+        if (isBallCondition(computer, user, index)) {
+            count ++;
+        }
+        return count;
+    }
+
+    private static boolean isBallCondition(BallNumbers computer, BallNumbers user, int index) {
+        return !computer.getBall(index).equals(user.getBall(index))
+                && computer.ballNumbers.contains(user.getBall(index));
+    }
+
+    private BallNumber getBall(int index) {
+        return ballNumbers.get(index);
+    }
+
     public int getSize() {
         return ballNumbers.size();
-    }
-
-    public int getStrikeCount(final BallNumbers userBalls) {
-        int count = 0;
-        for (int index = 0; index < ballNumbers.size(); index ++) {
-            count = increaseStrikeCount(userBalls, count, index);
-        }
-        return count;
-    }
-
-    private int increaseStrikeCount(final BallNumbers userBalls, int count, final int index) {
-        if (isNumberAndIndexEquals(userBalls, index)) {
-            count ++;
-        }
-        return count;
-    }
-
-    private boolean isNumberAndIndexEquals(final BallNumbers userBalls, final int index) {
-        return ballNumbers.get(index).equals(userBalls.ballNumbers.get(index));
-    }
-
-    public int getBallCount(final BallNumbers userBalls) {
-        int count = 0;
-        for (int index = 0; index < ballNumbers.size(); index ++) {
-            count = increaseBallCount(userBalls, count, index);
-        }
-        return count;
-    }
-
-    private int increaseBallCount(final BallNumbers userBalls, int count, final int index) {
-        if (!isNumberAndIndexEquals(userBalls, index)
-                && ballNumbers.contains(userBalls.ballNumbers.get(index))) {
-            count ++;
-        }
-        return count;
     }
 
     @Override

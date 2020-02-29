@@ -27,7 +27,7 @@ public class ManualBallNumberGenerator implements BallNumberGenerator {
 
     private void checkDuplicatedNumber() {
         Set<BallNumber> ballNumberSet = new HashSet<>(ballNumbers);
-        if (ballNumberSet.size() < ballNumbers.size()){
+        if (ballNumberSet.size() < ballNumbers.size()) {
             throw new IllegalArgumentException("각 자리 숫자는 중복 될 수 없습니다.");
         }
     }

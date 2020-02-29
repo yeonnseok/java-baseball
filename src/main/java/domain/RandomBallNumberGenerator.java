@@ -12,7 +12,7 @@ public class RandomBallNumberGenerator implements BallNumberGenerator {
     private static List<BallNumber> sourceBallNumber = new ArrayList<>();
 
     static {
-        for (int index = MIN_NUMBER; index <= MAX_NUMBER; index++){
+        for (int index = MIN_NUMBER; index <= MAX_NUMBER; index++) {
             sourceBallNumber.add(new BallNumber(String.valueOf(index)));
         }
     }

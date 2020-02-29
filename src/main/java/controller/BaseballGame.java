@@ -5,12 +5,11 @@ import view.InputView;
 import view.OutputView;
 
 public class BaseballGame {
-    private Computer computer;
-    private User user;
+    private ComputerNo computerNo;
+    private UserNo userNo;
 
     public void play() {
-        BallNumberGenerator ballNumberGenerator = new RandomBallNumberGenerator();
-        computer = new Computer(ballNumberGenerator);
+        computerNo = new ComputerNo(new RandomBallNumberGenerator());
         boolean isCorrect = false;
         repeatUntilAnswerCorrect(isCorrect);
         OutputView.printCorrectBallsMessage();
@@ -19,7 +18,7 @@ public class BaseballGame {
     private void repeatUntilAnswerCorrect(boolean isCorrect) {
         while (!isCorrect) {
             createUserWithInputValidation();
-            CountResult countResult = new CountResult(computer, user);
+            CountResult countResult = new CountResult(computerNo, userNo);
             OutputView.printCountResultMessage(countResult);
             isCorrect = countResult.isThreeStrike();
         }
@@ -27,9 +26,7 @@ public class BaseballGame {
 
     private void createUserWithInputValidation() {
         try {
-            BallNumberGenerator ballNumberGenerator =
-                    new ManualBallNumberGenerator(InputView.inputUserNumber());
-            user = new User(ballNumberGenerator);
+            userNo = new UserNo(new ManualBallNumberGenerator(InputView.inputUserNumber()));
         } catch (IllegalArgumentException | NullPointerException e) {
             OutputView.printExceptionMessage(e);
             createUserWithInputValidation();
