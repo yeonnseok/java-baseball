@@ -3,23 +3,23 @@ package domain;
 public class CountResult {
     private static final int ENTIRE_CORRECT = 3;
     private static final int EMPTY_CORRECT = 0;
-    private int strikeCountResult;
-    private int ballCountResult;
+    private int strike;
+    private int ball;
 
     public CountResult(final Computer computer, final User user) {
-        this.strikeCountResult = computer.calculateStrikeCount(user);
-        this.ballCountResult = computer.calculateBallCount(user);
+        this.strike = computer.calculateStrikeCount(user);
+        this.ball = computer.calculateBallCount(user);
     }
 
-    public int getStrikeCountResult() {
-        return strikeCountResult;
+    public int getStrike() {
+        return strike;
     }
 
-    public int getBallCountResult() {
-        return ballCountResult;
+    public int getBall() {
+        return ball;
     }
 
     public boolean isThreeStrike() {
-        return strikeCountResult == ENTIRE_CORRECT && ballCountResult == EMPTY_CORRECT;
+        return strike == ENTIRE_CORRECT && ball == EMPTY_CORRECT;
     }
 }

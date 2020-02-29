@@ -20,8 +20,8 @@ public class OutputView {
     }
 
     public static void printCountResultMessage(final CountResult countResult) {
-        int strike = countResult.getStrikeCountResult();
-        int ball = countResult.getBallCountResult();
+        int strike = countResult.getStrike();
+        int ball = countResult.getBall();
         if (strike > 0 && ball > 0) {
             System.out.println(String.format(BOTH_RESULT, strike, ball));
             return;

@@ -33,7 +33,7 @@ public class ManualBallNumberGenerator implements BallNumberGenerator {
     }
 
     private void checkNumberLength(final String numbers) {
-        if (numbers.length() != 3) {
+        if (numbers.length() != BALL_SIZE) {
             throw new IllegalArgumentException("세자리 정수를 입력해 주세요");
         }
     }

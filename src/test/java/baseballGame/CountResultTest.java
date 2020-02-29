@@ -17,8 +17,8 @@ public class CountResultTest {
         User user = new User(new ManualBallNumberGenerator("654"));
 
         CountResult countResult = new CountResult(computer, user);
-        assertThat(countResult.getStrikeCountResult()).isEqualTo(1);
-        assertThat(countResult.getBallCountResult()).isEqualTo(2);
+        assertThat(countResult.getStrike()).isEqualTo(1);
+        assertThat(countResult.getBall()).isEqualTo(2);
     }
 
     @Test
