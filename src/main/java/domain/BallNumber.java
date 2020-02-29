@@ -3,7 +3,7 @@ package domain;
 public class BallNumber {
     private int number;
 
-    public BallNumber(String number) {
+    public BallNumber(final String number) {
         checkNullNumber(number);
         checkEmptyNumber(number);
         checkNotNumber(number);
@@ -12,19 +12,19 @@ public class BallNumber {
         this.number = numberInteger;
     }
 
-    private void checkNullNumber(String number) {
+    private void checkNullNumber(final String number) {
         if (number == null) {
             throw new NullPointerException("숫자가 입력되지 않았습니다.");
         }
     }
 
-    private void checkEmptyNumber(String number) {
+    private void checkEmptyNumber(final String number) {
         if (number.isEmpty()) {
             throw new IllegalArgumentException("숫자가 입력되지 않았습니다.");
         }
     }
 
-    private void checkNotNumber(String number) {
+    private void checkNotNumber(final String number) {
         try {
             Integer.parseInt(number);
         } catch (IllegalArgumentException e) {
@@ -32,7 +32,7 @@ public class BallNumber {
         }
     }
 
-    private void checkNumberRange(int number) {
+    private void checkNumberRange(final int number) {
         if (number < 1 | number > 9) {
             throw new IllegalArgumentException("각 자리 숫자는 1~9까지로 이루어져야 합니다.");
         }

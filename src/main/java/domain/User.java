@@ -3,7 +3,7 @@ package domain;
 public class User {
     private BallNumbers userBalls;
 
-    public User(BallNumberGenerator ballNumberGenerator) {
+    public User(final BallNumberGenerator ballNumberGenerator) {
         this.userBalls = new BallNumbers(ballNumberGenerator);
     }
 

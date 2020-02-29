@@ -19,7 +19,7 @@ public class OutputView {
         System.out.print(INPUT_BALL_NUMBERS_GUIDE_MESSAGE);
     }
 
-    public static void printCountResultMessage(CountResult countResult) {
+    public static void printCountResultMessage(final CountResult countResult) {
         int strike = countResult.getStrikeCountResult();
         int ball = countResult.getBallCountResult();
         if (strike > 0 && ball > 0) {
@@ -29,7 +29,7 @@ public class OutputView {
         printOneSideResult(strike, ball);
     }
 
-    private static void printOneSideResult(int strike, int ball) {
+    private static void printOneSideResult(final int strike, final int ball) {
         if (strike > 0) {
             System.out.println(String.format(ONLY_STRIKE, strike));
             return;

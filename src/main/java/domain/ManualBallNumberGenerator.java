@@ -11,12 +11,13 @@ public class ManualBallNumberGenerator implements BallNumberGenerator {
     private List<BallNumber> ballNumbers = new ArrayList<>();
 
     public ManualBallNumberGenerator(String numbers) {
+        numbers = numbers.trim();
         checkNumberLength(numbers);
         createUserBallSize(numbers);
         checkDuplicatedNumber();
     }
 
-    private void createUserBallSize(String numbers) {
+    private void createUserBallSize(final String numbers) {
         for (int index = START_INDEX; index < BALL_SIZE; index++) {
             String eachNumber = String.valueOf(numbers.charAt(index));
             BallNumber ballNumber = new BallNumber(eachNumber);
@@ -31,7 +32,7 @@ public class ManualBallNumberGenerator implements BallNumberGenerator {
         }
     }
 
-    private void checkNumberLength(String numbers) {
+    private void checkNumberLength(final String numbers) {
         if (numbers.length() != 3) {
             throw new IllegalArgumentException("세자리 정수를 입력해 주세요");
         }

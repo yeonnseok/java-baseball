@@ -10,14 +10,10 @@ public enum Flag {
         this.no = no;
     }
 
-    public static Flag findFlag(int flagIntegerValue) {
+    public static Flag findFlag(final int flagIntegerValue) {
         if (flagIntegerValue == 1) {
             return Flag.RESTART;
         }
         return Flag.EXIT;
-    }
-
-    public int getNo() {
-        return no;
     }
 }
