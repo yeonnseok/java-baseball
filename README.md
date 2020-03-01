@@ -15,11 +15,13 @@
 
 ### 객체 구조 및 기능 목록
 ### domain
-- Computer
-- User
+- PlayerNo
+- ComputerNo
+- UserNo
 - BallNumberGenerator [interface]
 - RandomBallNumberGenerator
 - UserBallNumberGenerator
+- BallNumber
 - BallNumbers
 - CountResult
 - Flag [enum]
