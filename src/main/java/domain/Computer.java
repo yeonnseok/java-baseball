@@ -22,4 +22,8 @@ public class Computer {
         }
         return false;
     }
+
+    public BaseballNumbers getComputerBaseballNumbers() {
+        return this.baseballNumbers;
+    }
 }
