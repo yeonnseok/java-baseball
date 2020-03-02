@@ -1,5 +1,8 @@
 package baseball;
 
+import baseball.controller.GameController;
+import baseball.view.OutputView;
+
 /**
  * 클래스 이름 : .java
  *
@@ -10,6 +13,11 @@ package baseball;
  */
 public class BaseballApplication {
 	public static void main(String[] args) {
-
+		try {
+			GameController gameController = new GameController();
+			gameController.playBall();
+		} catch (Exception e) {
+			OutputView.printExceptionMessage(e);
+		}
 	}
 }
