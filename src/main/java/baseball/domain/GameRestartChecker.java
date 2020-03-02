@@ -1,14 +1,17 @@
 package baseball.domain;
 
 /**
- * 클래스 이름 : .java
+ * 게임을 다시 진행하는지 여부에 대한 책임을 가지는 객체
  *
- * @author
+ * @author 토니
  * @version 1.0
  * <p>
  * 날짜 : 2020/03/02
  */
 public class GameRestartChecker {
+	private static final int RESTART_GAME = 1;
+	private static final int TERMINATE_GAME = 2;
+
 	private final int gameRestartChecker;
 
 	public GameRestartChecker(int inputGameRestartChecker) {
@@ -17,12 +20,12 @@ public class GameRestartChecker {
 	}
 
 	private void validate(int inputGameRestartChecker) {
-		if (inputGameRestartChecker != 1 && inputGameRestartChecker != 2) {
+		if (inputGameRestartChecker != RESTART_GAME && inputGameRestartChecker != TERMINATE_GAME) {
 			throw new IllegalArgumentException("1 혹은 2만 입력하셔야합니다.");
 		}
 	}
 
 	public boolean isRestart() {
-		return this.gameRestartChecker == 1;
+		return this.gameRestartChecker == RESTART_GAME;
 	}
 }

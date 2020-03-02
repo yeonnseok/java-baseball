@@ -7,9 +7,9 @@ import java.util.Objects;
 import java.util.stream.IntStream;
 
 /**
- * 클래스 이름 : .java
+ * 숫자 객체들을 List형태로 가지고 있는 일급 컬렉션 
  *
- * @author
+ * @author 토니 
  * @version 1.0
  * <p>
  * 날짜 : 2020/03/02
@@ -60,10 +60,5 @@ public class GameNumbers {
 		return (int) IntStream.range(0, this.gameNumbers.size())
 				.filter(index -> this.gameNumbers.get(index).equals(inputGameNumbers.gameNumbers.get(index)))
 				.count();
-	}
-
-	@Override
-	public String toString() {
-		return gameNumbers.get(0).toString() + gameNumbers.get(1).toString() + gameNumbers.get(2).toString();
 	}
 }

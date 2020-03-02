@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 /**
- * 클래스 이름 : .java
+ * 래핑된 숫자 객체들을 캐시로 가지고 있는 객체
  *
- * @author
+ * @author 토니
  * @version 1.0
  * <p>
  * 날짜 : 2020/03/02
@@ -16,6 +16,8 @@ import java.util.stream.IntStream;
 public class GameNumberRepository {
 	private static final int MIN_NUMBER = 1;
 	private static final int MAX_NUMBER = 9;
+	private static final int SUBLIST_FROM = 0;
+	private static final int SUBLIST_TO = 3;
 	private static final List<GameNumber> gameNumberCache = new ArrayList<>();
 
 	static {
@@ -26,7 +28,6 @@ public class GameNumberRepository {
 
 	public static List<GameNumber> createGameNumbers() {
 		Collections.shuffle(gameNumberCache);
-		return gameNumberCache.subList(0, 3);
+		return gameNumberCache.subList(SUBLIST_FROM, SUBLIST_TO);
 	}
-
 }

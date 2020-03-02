@@ -1,9 +1,9 @@
 package baseball.domain;
 
 /**
- * 클래스 이름 : .java
+ * 숫자 야구 게임의 숫자를 감싸는 래퍼 객체
  *
- * @author
+ * @author 토니
  * @version 1.0
  * <p>
  * 날짜 : 2020/03/02
@@ -44,5 +44,4 @@ public class GameNumber {
 	public int hashCode() {
 		return super.hashCode();
 	}
-
 }

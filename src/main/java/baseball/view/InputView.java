@@ -2,9 +2,9 @@ package baseball.view;
 
 import java.util.Scanner;
 /**
- * 클래스 이름 : .java
+ * 입력을 담당하는 view
  *
- * @author
+ * @author 토니
  * @version 1.0
  * <p>
  * 날짜 : 2020/03/02
