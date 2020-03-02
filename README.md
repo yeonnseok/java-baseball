@@ -30,12 +30,6 @@
     - 1 또는 2 만 가능하다
 - PlayerBaseballNumbersGenerator
     - 사용자가 입력한 BaseballNumbers 를 생성한다
-- Result
-    - 결과를 담고 있는 클래스
-- StrikeCount
-    - 컴퓨터의 수와 사용자의 수를 비교했을 때 스트라이크의 개수
-- BallCount
-    - 컴퓨터의 수와 사용자의 수를 비교했을 때 볼의 개수
 - ResultCalculator
     - 사용자가 입력한 숫자와 컴퓨터가 갖고 있는 숫자를 비교해서 스트라이크, 볼의 개수를 판단해주는 클래스
 
