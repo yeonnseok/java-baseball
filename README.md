@@ -10,7 +10,7 @@
 2. 게임 참여자의 숫자를 입력받는다.
     - [ ] 입력한 값이 숫자인지 확인한다.
     - [ ] 입력한 값이 중복되는지 확인한다.
-    - [ ] 입력한 값이 1~9 사이에 있는지 확인한다.
+    - [x] 입력한 값이 1~9 사이에 있는지 확인한다.
     - [ ] 3개의 숫자를 입력했는지 확인한다.
 3. 맞춘 숫자에 따라 스트라이크, 볼, 낫싱을 출력한다.
     - 숫자가 존재하며, 같은 자리에 있으면 스트라이크
@@ -30,9 +30,12 @@
 - BaseballGame
     - controller의 역할을 한다.
     - 게임을 종료 혹은 재시작한다.
+    
 - Player
     - List<Ball> playerBalls
     - 경기 결과가 한 번 출력될때마다 playerBalls를 초기화한다.
+    - [검증] 입력된 숫자들이 3개의 숫자인지 검증
+    - [검증] 입력된 숫자들이 중복되는지 검증
 
 - Computer
     - List<Ball> computerBalls
@@ -40,7 +43,7 @@
     
 - Ball
     - int ball
-    - 입력된 숫자를 검증한다.
+    - [검증] 입력된 숫자가 1~9 사이에 있는지 검증
      
 - Judge
     - Map<BallMatch, Integer> gameResult
@@ -62,7 +65,7 @@
 - ManualNumberGenerator
     - Generator를 implements 한다.
     - generate() : 지정한 숫자를 만들어낸다.
-
+    
 - RandomNumberGenerator
     - Generator를 implements 한다.
     - generate() : 랜덤한 숫자를 만들어낸다.
@@ -71,6 +74,7 @@
 - InputView
     - 사용자로부터 값을 입력받는다.
     - 숫자가 아닌 경우 예외처리한다.
+    - [검증] 입력한 숫자가 문자가 아닌지 검증
 - OutputView
     - 게임 진행 멘트를 출력한다.
     - 결과를 출력한다.
