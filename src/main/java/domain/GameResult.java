@@ -10,4 +10,7 @@ public class GameResult {
         this.gameResult = playerBalls.createGameResult(computerBalls);
     }
 
+    public Map<BallMatch, Integer> getResult() {
+        return this.gameResult;
+    }
 }
