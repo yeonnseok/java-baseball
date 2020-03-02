@@ -7,6 +7,7 @@ import java.util.List;
 
 public class PlayerBaseballNumbersGenerator {
     private static final String DELIMITER = "";
+    private static final int MAX_BASEBALL_NUMBERS_LENGTH = 3;
 
     private PlayerBaseballNumbersGenerator() {
     }
@@ -27,7 +28,7 @@ public class PlayerBaseballNumbersGenerator {
     }
 
     private static void validateLength(String input) {
-        if (input.length() != 3) {
+        if (input.length() != MAX_BASEBALL_NUMBERS_LENGTH) {
             throw new IllegalArgumentException("3자리 수를 입력해주세요.");
         }
     }

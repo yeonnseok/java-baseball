@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 public class BaseballNumbers {
+    private static final int MAX_BASEBALL_NUMBERS_SIZE = 3;
+
     private List<BaseballNumber> baseballNumbers;
 
     public BaseballNumbers(List<BaseballNumber> baseballNumberList) {
@@ -14,7 +16,7 @@ public class BaseballNumbers {
     }
 
     private void validateBaseballNumbersSize(List<BaseballNumber> baseballNumberList) {
-        if (baseballNumberList.size() != 3) {
+        if (baseballNumberList.size() != MAX_BASEBALL_NUMBERS_SIZE) {
             throw new IllegalArgumentException("3자리의 숫자를 입력하세요.");
         }
     }
@@ -24,5 +26,9 @@ public class BaseballNumbers {
         if (duplicateBaseballNumbers.size() != baseballNumberList.size()) {
             throw new IllegalArgumentException("중복된 수를 입력할 수 없습니다.");
         }
+    }
+
+    public List<BaseballNumber> getBaseballNumbers() {
+        return this.baseballNumbers;
     }
 }
