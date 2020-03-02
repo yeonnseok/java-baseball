@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class GameResult {
-    private Map<BallMatch, Integer> gameResult = new HashMap<>();
-
-    public Map<BallMatch, Integer> countGameResult(List<Ball> playerBalls, List<Ball> computerBalls) {
-
-        return gameResult;
+    private Map<BallMatch, Integer> gameResult;
+    public GameResult(Player playerBalls, ComputerPlayer computerBalls) {
+        this.gameResult = playerBalls.createGameResult(computerBalls);
     }
+
 }

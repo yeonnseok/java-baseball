@@ -5,7 +5,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -35,5 +37,18 @@ public class PlayerTest {
             new Player("112");
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("야구 게임의 숫자를 중복없이 입력해주세요.");
+    }
+
+    @Test
+    void 게임_결과를_제대로_반환하는지_테스트() {
+        Map<BallMatch, Integer> testResult = new HashMap<>();
+        testResult.put(BallMatch.STRIKE, 2);
+        testResult.put(BallMatch.BALL, 0);
+
+        Generator manualNumber = new ManualNumberGenerator();
+        Player playerBalls = new Player("124");
+        ComputerPlayer computerBalls = new ComputerPlayer(manualNumber);
+
+        assertThat(playerBalls.createGameResult(computerBalls)).isEqualTo(testResult);
     }
 }

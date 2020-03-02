@@ -11,7 +11,7 @@ public class ComputerPlayerTest {
     @Test
     void ComputerPlayer가_랜덤한_숫자들을_잘_생성하는지_테스트() {
         Generator manualNumber = new ManualNumberGenerator();
-        List<Ball> testComputerBalls = Arrays.asList(Ball.createBall(1),Ball.createBall(2),Ball.createBall(3));
-        assertThat(new ComputerPlayer(manualNumber)).isEqualTo(testComputerBalls);
+        List<Ball> testComputerBalls = Arrays.asList(Ball.createBall(1),Ball.createBall(2), Ball.createBall(3));
+        assertThat(new ComputerPlayer(manualNumber).getBalls()).isEqualTo(testComputerBalls);
     }
 }
