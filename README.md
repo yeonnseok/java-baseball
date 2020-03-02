@@ -28,8 +28,8 @@
 - GameContinue
     - 게임 재개를 선택하는 원시값을 포장하는 클래스
     - 1 또는 2 만 가능하다
-- PlayerBaseballNumbers
-    - 사용자가 입력한 BaseballNumbers 를 갖는다
+- PlayerBaseballNumbersGenerator
+    - 사용자가 입력한 BaseballNumbers 를 생성한다
 - Result
     - 결과를 담고 있는 클래스
 - StrikeCount
