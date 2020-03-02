@@ -1,5 +1,7 @@
 package baseball.controller;
 
+import baseball.domain.GameNumberRepository;
+import baseball.domain.GameNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
@@ -14,7 +16,9 @@ import baseball.view.OutputView;
 public class GameController {
 
 	public void playBall() {
+		GameNumbers targetGameNumbers = new GameNumbers(GameNumberRepository.createGameNumbers());
 		OutputView.askPlayerGameNumber();
-		int inputPlayerGameNumbers = InputView.getPlayerGameNumbers();
+		GameNumbers playerGameNumbers = new GameNumbers(InputView.getPlayerGameNumbers());
+
 	}
 }
