@@ -16,10 +16,13 @@
     - 임의로 생성된 BaseballNumber 를 갖는다
     - 사용자가 입력한 수와 BaseballNumber 를 비교해 게임의 결과를 판단한다
 - BaseballNumber
-    - 사용자가 입력한 값 또는 랜덤으로 입력된 3자리의 양의 정수 일급 콜렉션
-    - 0 이 포함될 수 없다
+    - 숫자 하나의 원시값을 포장하는 클래스
+    - 0 이하의 수는 안된다
+    - 1 ~ 9 중에 하나만 허용된다
+- BaseballNumbers
+    - BaseballNumber 를 갖는 일급 콜렉션
+    - 3자리어야 한다
     - 중복된 숫자가 없다
-    - 각 자리수는 1 ~ 9 중에 하나만 허용된다
 - RandomNumberGenerator
     - 컴퓨터가 갖는 임의의 3자리BaseBbllNumber 를 생성해준다
 
