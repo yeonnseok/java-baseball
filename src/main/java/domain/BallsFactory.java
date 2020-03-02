@@ -16,4 +16,14 @@ public class BallsFactory {
         }
         return new ArrayList<>(playerBalls);
     }
+
+    public static List<Ball> createComputerBalls(Generator randomNumberGenerator) {
+        Set<Ball> computerBalls = new HashSet<>();
+        while (computerBalls.size() != 3) {
+            int randomNumber = randomNumberGenerator.generate();
+            Ball computerBall = Ball.createBall(randomNumber);
+            computerBalls.add(computerBall);
+        }
+        return new ArrayList<>(computerBalls);
+    }
 }
