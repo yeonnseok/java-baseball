@@ -68,4 +68,12 @@ public class GameNumbersTest {
 
 		assertThat(gameNumbers.getContainingGameNumbersCount(targetNumbers)).isEqualTo(2);
 	}
+
+	@Test
+	void getSamePositionGameNumberCount_2개_겹칠시_2반환() {
+		GameNumbers gameNumbers = new GameNumbers(123);
+		GameNumbers targetNumbers = new GameNumbers(423);
+
+		assertThat(gameNumbers.getSamePositionGameNumberCount(targetNumbers)).isEqualTo(2);
+	}
 }

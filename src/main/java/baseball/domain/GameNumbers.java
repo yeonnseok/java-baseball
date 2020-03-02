@@ -3,6 +3,7 @@ package baseball.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 /**
  * 클래스 이름 : .java
@@ -49,6 +50,13 @@ public class GameNumbers {
 	}
 
 	private boolean isContains(GameNumber inputGameNumber) {
-		return this.gameNumbers.stream().anyMatch(gameNumber -> gameNumber.equals(inputGameNumber));
+		return this.gameNumbers.stream()
+				.anyMatch(gameNumber -> gameNumber.equals(inputGameNumber));
+	}
+
+	public int getSamePositionGameNumberCount(GameNumbers inputGameNumbers) {
+		return (int) IntStream.range(0, this.gameNumbers.size())
+				.filter(index -> this.gameNumbers.get(index).equals(inputGameNumbers.gameNumbers.get(index)))
+				.count();
 	}
 }
