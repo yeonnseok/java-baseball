@@ -2,6 +2,7 @@ package baseball.controller;
 
 import baseball.domain.GameNumberRepository;
 import baseball.domain.GameNumbers;
+import baseball.domain.GameRestartChecker;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
@@ -18,7 +19,7 @@ public class GameController {
 	public void playBall() {
 		do {
 			playOneRound();
-		} while (isPlayAgain());
+		} while (isRestartGame());
 	}
 
 	public void playOneRound() {
@@ -35,12 +36,9 @@ public class GameController {
 		} while (targetGameNumbers.getSamePositionGameNumberCount(playerGameNumbers) != 3);
 	}
 
-	private boolean isPlayAgain() {
-		OutputView.askPlayAgain();
-		int againOrNot = InputView.getPlayAgainOrNot();
-		if (againOrNot != 1 && againOrNot != 2) {
-			throw new IllegalArgumentException("잘못된 입력입니다.");
-		}
-		return againOrNot == 1;
+	private boolean isRestartGame() {
+		OutputView.askRestartGame();
+		GameRestartChecker gameRestartChecker = new GameRestartChecker(InputView.getPlayAgainOrNot());
+		return gameRestartChecker.isRestart();
 	}
 }

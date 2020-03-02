@@ -45,9 +45,7 @@ public class OutputView {
 		System.out.printf("%d 스트라이크 %d 볼\n", strike, ball);
 	}
 
-	public static void askPlayAgain() {
+	public static void askRestartGame() {
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 	}
-
-
 }
