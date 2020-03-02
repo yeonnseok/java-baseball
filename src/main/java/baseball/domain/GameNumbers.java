@@ -41,4 +41,14 @@ public class GameNumbers {
 			throw new IllegalArgumentException("지정된 길이의 입력이 아닙니다.");
 		}
 	}
+
+	public int getContainingGameNumbersCount(GameNumbers inputGameNumbers) {
+		return (int) this.gameNumbers.stream()
+				.filter(inputGameNumbers::isContains)
+				.count();
+	}
+
+	private boolean isContains(GameNumber inputGameNumber) {
+		return this.gameNumbers.stream().anyMatch(gameNumber -> gameNumber.equals(inputGameNumber));
+	}
 }

@@ -60,4 +60,12 @@ public class GameNumbersTest {
 			new GameNumbers(inputGameNumbers);
 		}).withMessage("지정된 길이의 입력이 아닙니다.");
 	}
+
+	@Test
+	void getContainingGameNumbersCount_2개_겹칠시_2_반환() {
+		GameNumbers gameNumbers = new GameNumbers(123);
+		GameNumbers targetNumbers = new GameNumbers(234);
+
+		assertThat(gameNumbers.getContainingGameNumbersCount(targetNumbers)).isEqualTo(2);
+	}
 }

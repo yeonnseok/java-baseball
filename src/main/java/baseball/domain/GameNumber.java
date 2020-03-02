@@ -29,4 +29,20 @@ public class GameNumber {
 	public String toString() {
 		return Integer.toString(this.gameNumber);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		GameNumber that = (GameNumber)obj ;
+		return this.gameNumber == that.gameNumber;
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
 }
