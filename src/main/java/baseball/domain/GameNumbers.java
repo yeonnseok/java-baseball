@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
@@ -34,6 +35,7 @@ public class GameNumbers {
 			inputGameNumbers.add(new GameNumber(inputIntGameNumbers % 10));
 			inputIntGameNumbers = inputIntGameNumbers / 10;
 		}
+		Collections.reverse(inputGameNumbers);
 		return inputGameNumbers;
 	}
 
@@ -43,20 +45,25 @@ public class GameNumbers {
 		}
 	}
 
-	public int getContainingGameNumbersCount(GameNumbers inputGameNumbers) {
+	public int getContainingGameNumbersCount(final GameNumbers inputGameNumbers) {
 		return (int) this.gameNumbers.stream()
 				.filter(inputGameNumbers::isContains)
 				.count();
 	}
 
-	private boolean isContains(GameNumber inputGameNumber) {
+	private boolean isContains(final GameNumber inputGameNumber) {
 		return this.gameNumbers.stream()
 				.anyMatch(gameNumber -> gameNumber.equals(inputGameNumber));
 	}
 
-	public int getSamePositionGameNumberCount(GameNumbers inputGameNumbers) {
+	public int getSamePositionGameNumberCount(final GameNumbers inputGameNumbers) {
 		return (int) IntStream.range(0, this.gameNumbers.size())
 				.filter(index -> this.gameNumbers.get(index).equals(inputGameNumbers.gameNumbers.get(index)))
 				.count();
+	}
+
+	@Override
+	public String toString() {
+		return gameNumbers.get(0).toString() + gameNumbers.get(1).toString() + gameNumbers.get(2).toString();
 	}
 }
