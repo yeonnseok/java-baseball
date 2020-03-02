@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class ComputerPlayer {
+    public static final int BALLS_SIZE = 3;
     private List<Ball> computerBalls;
 
     public ComputerPlayer(Generator randomNumberGenerator) {
@@ -12,7 +13,7 @@ public class ComputerPlayer {
     }
 
     public void matchResult(Map<BallMatch, Integer> gameResult, Ball ball, int idx) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BALLS_SIZE; i++) {
             boolean havingBall = ball.equals(computerBalls.get(i));
             boolean sameLocation = idx == i;
             countStrike(gameResult, havingBall, sameLocation);

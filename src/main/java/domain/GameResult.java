@@ -1,12 +1,12 @@
 package domain;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class GameResult {
     public static final int THREE_STRIKE = 3;
+
     private Map<BallMatch, Integer> gameResult;
+
     public GameResult(Player playerBalls, ComputerPlayer computerBalls) {
         this.gameResult = playerBalls.createGameResult(computerBalls);
     }
