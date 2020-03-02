@@ -31,6 +31,11 @@
     - controller의 역할을 한다.
     - 게임을 종료 혹은 재시작한다.
     
+- BallsFactory
+    - 야구공 리스트를 만든다.
+    - createComputerBalls()
+    - createPlayerBalls()
+    
 - Player
     - List<Ball> playerBalls
     - 경기 결과가 한 번 출력될때마다 playerBalls를 초기화한다.

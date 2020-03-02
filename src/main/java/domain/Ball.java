@@ -1,17 +1,31 @@
 package domain;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Ball {
     public static final int MIN_BALL_NUMBER = 1;
     public static final int MAX_BALL_NUMBER = 9;
-    private int ball;
+    private static Map<Integer, Ball> ballCreator = new HashMap<>();
 
-    public Ball(int ballNumber) {
+    private int ball;
+    private Ball(int ballNumber) {
         this.ball = ballNumber;
-        validateBallRange();
     }
 
-    private void validateBallRange() {
-        if (this.ball < MIN_BALL_NUMBER || this.ball > MAX_BALL_NUMBER) {
+    static {
+        for (int i = MIN_BALL_NUMBER; i <= MAX_BALL_NUMBER; i++) {
+            ballCreator.put(i, new Ball(i));
+        }
+    }
+
+    public static Ball createBall(int ballNumber) {
+        validateBallRange(ballNumber);
+        return ballCreator.get(ballNumber);
+    }
+
+    private static void validateBallRange(int ballNumber) {
+        if (ballNumber < MIN_BALL_NUMBER || ballNumber > MAX_BALL_NUMBER) {
             throw new IllegalArgumentException("공은 1~9 사이의 숫자여야합니다.");
         }
     }
