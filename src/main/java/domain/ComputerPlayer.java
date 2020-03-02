@@ -5,7 +5,7 @@ import java.util.List;
 public class ComputerPlayer {
     List<Ball> computerBalls;
 
-    public ComputerPlayer() {
-      //  this.computerBalls = BallsFactory.createComputerBalls();
+    public ComputerPlayer(Generator randomNumberGenerator) {
+      this.computerBalls = BallsFactory.createComputerBalls(randomNumberGenerator);
     }
 }
