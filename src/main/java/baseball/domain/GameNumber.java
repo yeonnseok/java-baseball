@@ -24,4 +24,9 @@ public class GameNumber {
 			throw new IllegalArgumentException("GameNumber의 범위를 초과한 입력이 있습니다.");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return Integer.toString(this.gameNumber);
+	}
 }
