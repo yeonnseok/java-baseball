@@ -21,4 +21,12 @@ public class InputView {
 			throw new NumberFormatException("입력이 정수가 아닙니다.");
 		}
 	}
+
+	public static int getPlayAgainOrNot() {
+		try {
+			return Integer.parseInt(SCANNER.nextLine());
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("입력이 정수가 아닙니다.");
+		}
+	}
 }
