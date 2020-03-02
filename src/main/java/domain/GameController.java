@@ -3,15 +3,20 @@ package domain;
 import view.InputView;
 import view.OutputView;
 
-import java.io.OutputStream;
-
 public class GameController {
     public static void run() {
-        Generator randomNumberGenreator = new RandomNumberGenerator();
-        ComputerPlayer computerPlayer = new ComputerPlayer(randomNumberGenreator);
-        Player player = new Player(inputPlayerNumbers());
-        GameResult gameResult = new GameResult(player, computerPlayer);
-        OutputView.printGameResult(gameResult.getResult());
+        Generator randomNumberGenerator = new RandomNumberGenerator();
+        ComputerPlayer computerPlayer = new ComputerPlayer(randomNumberGenerator);
+        ThreeStrikeJudge judge = new ThreeStrikeJudge();
+        while (!judge.isThreeStrike()) {
+            judge.clearStrike();
+            OutputView.printInputPlayerNumbers();
+            Player player = new Player(inputPlayerNumbers());
+            GameResult gameResult = new GameResult(player, computerPlayer);
+            OutputView.printGameResult(gameResult.getResult());
+            judge.countStrike(gameResult);
+        }
+        OutputView.printEnd();
     }
 
     private static String inputPlayerNumbers() {
