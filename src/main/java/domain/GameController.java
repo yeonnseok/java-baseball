@@ -11,7 +11,7 @@ public class GameController {
         while (!judge.isThreeStrike()) {
             judge.clearStrike();
             OutputView.printInputPlayerNumbers();
-            Player player = new Player(inputPlayerNumbers());
+            Player player = createPlayer();
             GameResult gameResult = new GameResult(player, computerPlayer);
             OutputView.printGameResult(gameResult.getResult());
             judge.countStrike(gameResult);
@@ -19,7 +19,21 @@ public class GameController {
         OutputView.printEnd();
     }
 
+    private static Player createPlayer() {
+        try {
+            return new Player(inputPlayerNumbers());
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return createPlayer();
+        }
+    }
+
     private static String inputPlayerNumbers() {
-        return InputView.inputPlayerNumbers();
+        try {
+            return InputView.inputPlayerNumbers();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return inputPlayerNumbers();
+        }
     }
 }
