@@ -11,6 +11,8 @@ import baseball.view.OutputView;
  * <p>
  * 날짜 : 2020/03/02
  */
+// TODO: 2020/03/02 상수 컨벤션 임포트 자바독
+
 public class BaseballApplication {
 	public static void main(String[] args) {
 		try {

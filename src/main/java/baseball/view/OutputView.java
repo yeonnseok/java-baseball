@@ -21,5 +21,30 @@ public class OutputView {
 		System.out.println(e.getMessage());
 	}
 
+	public static void printResult(int strike, int ball) {
+		if (strike == 3) {
+			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+			return;
+		}
+
+		if (strike == 0 && ball == 0) {
+			System.out.println("하나도 못 맞췄습니다.");
+			return;
+		}
+
+		if (ball == 0) {
+			System.out.printf("%d 스트라이크\n", strike);
+			return;
+		}
+
+		if (strike == 0) {
+			System.out.printf("%d 볼\n", ball);
+			return;
+		}
+
+		System.out.printf("%d 스트라이크 %d 볼\n", strike, ball);
+
+	}
+
 
 }
