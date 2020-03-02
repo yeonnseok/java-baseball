@@ -24,8 +24,18 @@
     - 3자리어야 한다
     - 중복된 숫자가 없다
 - RandomNumberGenerator
-    - 컴퓨터가 갖는 임의의 3자리BaseBbllNumber 를 생성해준다
-
+    - 컴퓨터가 갖는 임의의 BaseballNumber 를 생성해준다
+- GameContinue
+    - 게임 재개를 선택하는 원시값을 포장하는 클래스
+    - 1 또는 2 만 가능하다
+- PlayerBaseballNumbers
+    - 사용자가 입력한 BaseballNumbers 를 갖는다
+- Result
+    - 결과를 담고 있는 클래스
+- StrikeCount
+    - 컴퓨터의 수와 사용자의 수를 비교했을 때 스트라이크의 개수
+- BallCount
+    - 컴퓨터의 수와 사용자의 수를 비교했을 때 볼의 개수
 
 
 
