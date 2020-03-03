@@ -10,7 +10,8 @@ public class ComputerPlayer {
     private List<Ball> computerBalls;
 
     public ComputerPlayer(Generator randomNumberGenerator) {
-        this.computerBalls = BallsFactory.createComputerBalls(randomNumberGenerator);
+        BallsFactory computerBallsFactory = new ComputerBallsFactory();
+        this.computerBalls = computerBallsFactory.createBalls(randomNumberGenerator);
     }
 
     public void matchResult(Map<BallMatch, Integer> gameResult, Ball ball, int idx) {

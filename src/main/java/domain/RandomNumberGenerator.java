@@ -5,4 +5,7 @@ public class RandomNumberGenerator implements Generator {
     public int generate() {
         return RandomNumber.generateRandomNumber();
     }
+
+    @Override
+    public String getPlayerNumbers(){return "";}
 }

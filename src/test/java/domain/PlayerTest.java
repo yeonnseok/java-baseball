@@ -2,8 +2,6 @@ package domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,28 +15,20 @@ public class PlayerTest {
     @Test
     @DisplayName("test create PlayerBalls")
     void PlayerBalls가_제대로_생성되는지_테스트() {
+        Generator manualGenerator = new ManualNumberGenerator("123");
         List<Ball> testBalls = new ArrayList<>();
         testBalls.add(Ball.createBall(1));
         testBalls.add(Ball.createBall(2));
         testBalls.add(Ball.createBall(3));
-        assertThat(new Player("123").getBalls()).isEqualTo(testBalls);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"1", "12", "1234", "12345"})
-    @DisplayName("validate playerBalls Range")
-    void PlayerBalls가_3개의_숫자가_아닌_경우_예외_처리(String testNumber) {
-        assertThatThrownBy(() -> {
-            new Player(testNumber);
-        }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("야구 게임의 숫자는 3개로 이루어져있습니다.");
+        assertThat(new Player(manualGenerator).getBalls()).isEqualTo(testBalls);
     }
 
     @Test
     @DisplayName("validate Duplicated Numbers")
     void PlayerBalls가_중복이_있는_경우_예외_처리() {
+        Generator manualGenerator = new ManualNumberGenerator("122");
         assertThatThrownBy(() -> {
-            new Player("112");
+            new Player(manualGenerator);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("야구 게임의 숫자를 중복없이 입력해주세요.");
     }
@@ -50,8 +40,8 @@ public class PlayerTest {
         testResult.put(BallMatch.STRIKE, 2);
         testResult.put(BallMatch.BALL, 0);
 
-        Generator manualNumber = new ManualNumberGenerator();
-        Player playerBalls = new Player("124");
+        Generator manualNumber = new ManualNumberGenerator("124");
+        Player playerBalls = new Player(manualNumber);
         ComputerPlayer computerBalls = new ComputerPlayer(manualNumber);
 
         assertThat(playerBalls.createGameResult(computerBalls)).isEqualTo(testResult);

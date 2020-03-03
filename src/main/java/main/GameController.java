@@ -21,7 +21,8 @@ public class GameController {
 
     private static Player createPlayer() {
         try {
-            return new Player(inputPlayerNumbers());
+            Generator manualGenerator = new ManualNumberGenerator(InputView.inputPlayerNumbers());
+            return new Player(manualGenerator);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             return createPlayer();

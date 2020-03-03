@@ -8,16 +8,10 @@ public class Player {
     public static final int BALLS_SIZE = 3;
     private List<Ball> playerBalls;
 
-    public Player(String playerBalls) {
-        validateBallsCount(playerBalls);
-        this.playerBalls = BallsFactory.createPlayerBalls(playerBalls);
+    public Player(Generator manualGenerator) {
+        BallsFactory playerBallsFactory = new PlayerBallsFactory();
+        this.playerBalls = playerBallsFactory.createBalls(manualGenerator);
         validateBallsSize();
-    }
-
-    private void validateBallsCount(String playerBalls) {
-        if (playerBalls.length() != BALLS_SIZE) {
-            throw new IllegalArgumentException("야구 게임의 숫자는 3개로 이루어져있습니다.");
-        }
     }
 
     private void validateBallsSize() {
