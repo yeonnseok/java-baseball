@@ -28,6 +28,6 @@ public class GameNumberRepository {
 
 	public static List<GameNumber> createGameNumbers() {
 		Collections.shuffle(gameNumberCache);
-		return gameNumberCache.subList(SUBLIST_FROM, SUBLIST_TO);
+		return Collections.unmodifiableList(gameNumberCache.subList(SUBLIST_FROM, SUBLIST_TO));
 	}
 }
