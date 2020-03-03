@@ -13,7 +13,7 @@ public class BaseballGameController {
 
         do {
             computerNumbers = computer.getComputerBaseballNumbers();
-            BaseballNumbers playerNumbers = getPlayerBaseballNumbers();
+            BaseballNumbers playerNumbers = createPlayerBaseballNumbers();
             strikeCount = ResultCalculator.calculateStrike(playerNumbers, computerNumbers);
             int ballCount = ResultCalculator.calculateBall(playerNumbers, computerNumbers);
             OutputViewer.printResult(strikeCount, ballCount);
@@ -22,30 +22,30 @@ public class BaseballGameController {
         checkEndGame(computer);
     }
 
-    private static BaseballNumbers getPlayerBaseballNumbers() {
+    private static BaseballNumbers createPlayerBaseballNumbers() {
         try {
             String playerNumber = InputViewer.inputPlayerBaseballNumbers();
             return PlayerBaseballNumbersGenerator.generateBaseballNumbers(playerNumber);
         } catch (IllegalArgumentException e) {
             OutputViewer.printErrorMessage(e.getMessage());
-            return getPlayerBaseballNumbers();
+            return createPlayerBaseballNumbers();
         }
     }
 
     private static void checkEndGame(Computer computer) {
-        GameContinue gameContinue = getGameContinue();
+        GameContinue gameContinue = createGameContinue();
         if (gameContinue.playMore()) {
             run(new Computer());
         }
     }
 
-    private static GameContinue getGameContinue() {
+    private static GameContinue createGameContinue() {
         try {
             String continueNumber = InputViewer.inputContinueGame();
             return new GameContinue(continueNumber);
         } catch (IllegalArgumentException e) {
             OutputViewer.printErrorMessage(e.getMessage());
-            return getGameContinue();
+            return createGameContinue();
         }
     }
 }
