@@ -10,8 +10,16 @@ public class InputView {
         return SCANNER.nextLine();
     }
 
-    public static String inputRestartOrExitNumber() {
+    public static int inputRestartOrExitNumber() {
         OutputView.printRestartOrExitMessage();
-        return SCANNER.nextLine();
+        return inputWithNumberValidation();
+    }
+
+    private static int inputWithNumberValidation() {
+        try {
+            return Integer.parseInt(SCANNER.nextLine());
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("숫자만 입력 가능합니다.");
+        }
     }
 }

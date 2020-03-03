@@ -5,6 +5,10 @@ import view.InputView;
 import view.OutputView;
 
 public class BaseballApplication {
+
+    private static final int RESTART = 1;
+    private static final int EXIT = 2;
+
     public static void main(String[] args) {
         Flag restartFlag = Flag.RESTART;
         while (restartFlag != Flag.EXIT) {
@@ -36,11 +40,9 @@ public class BaseballApplication {
 
     private static Flag inputRestartFlagWithValidation() {
         try {
-            String input = InputView.inputRestartOrExitNumber();
-            checkNotNumber(input);
-            int flagIntegerValue = Integer.parseInt(input);
-            checkFlagRange(flagIntegerValue);
-            return Flag.findFlag(flagIntegerValue);
+            int input = InputView.inputRestartOrExitNumber();
+            checkFlagRange(input);
+            return Flag.findFlag(input);
         } catch (IllegalArgumentException | NullPointerException e) {
             OutputView.printExceptionMessage(e);
             return inputRestartFlagWithValidation();
@@ -48,16 +50,9 @@ public class BaseballApplication {
     }
 
     private static void checkFlagRange(int flagIntegerValue) {
-        if (flagIntegerValue != 1 && flagIntegerValue != 2) {
+        if (flagIntegerValue != RESTART && flagIntegerValue != EXIT) {
             throw new IllegalArgumentException("입력할 수 있는 범위가 아닙니다.");
         }
     }
 
-    private static void checkNotNumber(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException("숫자만 입력 가능합니다.");
-        }
-    }
 }
