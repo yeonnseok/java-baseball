@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 public class BaseballNumberPool {
     private static final int MIN_BASEBALL_NUMBER_RANGE = 1;
     private static final int MAX_BASEBALL_NUMBER_RANGE = 9;
+    private static final int MAX_BASEBALL_NUMBERS_SIZE = 3;
 
     private static List<BaseballNumber> baseballNumberPool;
 
@@ -20,7 +21,7 @@ public class BaseballNumberPool {
     public static List<BaseballNumber> getNonDuplicateNumber() {
         Collections.shuffle(baseballNumberPool);
         return baseballNumberPool.stream()
-                .limit(3)
+                .limit(MAX_BASEBALL_NUMBERS_SIZE)
                 .collect(Collectors.toList());
     }
 }
