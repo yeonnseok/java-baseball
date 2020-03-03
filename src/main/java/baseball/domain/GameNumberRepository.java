@@ -26,6 +26,13 @@ public class GameNumberRepository {
 				.forEach(gameNumberCache::add);
 	}
 
+	public static GameNumber createGameNumber(final int inputGameNumber) {
+		return gameNumberCache.stream()
+				.filter(gameNumber -> gameNumber.getGameNumber() == inputGameNumber)
+				.findAny()
+				.orElseThrow(() -> new IllegalArgumentException("범위에 없는 수를 입력했습니다."));
+	}
+
 	public static List<GameNumber> createGameNumbers() {
 		Collections.shuffle(gameNumberCache);
 		return Collections.unmodifiableList(gameNumberCache.subList(SUBLIST_FROM, SUBLIST_TO));

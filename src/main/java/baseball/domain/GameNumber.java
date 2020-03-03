@@ -16,7 +16,7 @@ public class GameNumber {
 
 	private final int gameNumber;
 
-	public GameNumber(final int inputGameNumber) { // TODO: 2020/03/03 정적 팩토리 메서드로
+	public GameNumber(final int inputGameNumber) {
 		validate(inputGameNumber);
 		this.gameNumber = inputGameNumber;
 	}

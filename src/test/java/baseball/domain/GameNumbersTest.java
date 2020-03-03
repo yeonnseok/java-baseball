@@ -26,7 +26,7 @@ public class GameNumbersTest {
 	}
 
 	@Test
-	void GaemNumbers_int_이용_생성자_올바른_동작_확인() {
+	void GameNumbers_int_이용_생성자_올바른_동작_확인() {
 		assertThat(new GameNumbers(123)).isInstanceOf(GameNumbers.class);
 	}
 

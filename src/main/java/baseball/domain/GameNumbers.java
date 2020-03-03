@@ -31,7 +31,7 @@ public class GameNumbers {
 		validateLength(inputIntGameNumbers);
 		List<GameNumber> inputGameNumbers = new ArrayList<>();
 		for (int i = 0, end = (int)(Math.log10(inputIntGameNumbers)+1); i < end; i++) {
-			inputGameNumbers.add(0, new GameNumber(inputIntGameNumbers % 10));
+			inputGameNumbers.add(0, GameNumberRepository.createGameNumber(inputIntGameNumbers % 10));
 			inputIntGameNumbers = inputIntGameNumbers / 10;
 		}
 		return inputGameNumbers;
