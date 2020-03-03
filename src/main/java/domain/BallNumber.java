@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class BallNumber {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
@@ -18,12 +20,15 @@ public class BallNumber {
 
     @Override
     public boolean equals(Object o) {
-        return this.number == ((BallNumber) o).number;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BallNumber that = (BallNumber) o;
+        return number == that.number;
     }
 
     @Override
     public int hashCode() {
-        return 31 * number;
+        return Objects.hash(number);
     }
 
     @Override
