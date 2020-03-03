@@ -3,6 +3,7 @@ package domain;
 public class CountResult {
     private static final int ENTIRE_CORRECT = 3;
     private static final int EMPTY_CORRECT = 0;
+
     private int strike;
     private int ball;
 

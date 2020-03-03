@@ -5,7 +5,8 @@ import java.util.List;
 
 public class BallNumbers {
     private static final int INITIAL_COUNT = 0;
-    public static final int BALL_SIZE = 3;
+    private static final int BALL_SIZE = 3;
+
     private List<BallNumber> ballNumbers = new ArrayList<>();
 
     public BallNumbers (final BallNumberGenerator ballNumberGenerator) {
