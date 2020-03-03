@@ -5,6 +5,7 @@ public enum Flag {
     EXIT(2);
 
     private static final int RESTART_NUMBER = 1;
+
     private int no;
 
     Flag(int no) {
