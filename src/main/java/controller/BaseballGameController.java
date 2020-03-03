@@ -17,7 +17,7 @@ public class BaseballGameController {
             OutputViewer.printResult(strikeCount, ballCount);
         } while (strikeCount != 3);
 
-        isEnd(computer);
+        checkEndGame(computer);
     }
 
     private static BaseballNumbers getPlayerBaseballNumbers() {
@@ -30,7 +30,7 @@ public class BaseballGameController {
         }
     }
 
-    private static void isEnd(Computer computer) {
+    private static void checkEndGame(Computer computer) {
         GameContinue gameContinue = getGameContinue();
         if (computer.isContinue(gameContinue)) {
             run(computer);
