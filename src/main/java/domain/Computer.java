@@ -10,7 +10,7 @@ public class Computer {
     }
 
     public Computer(List<BaseballNumber> baseballNumberList) {
-        BaseballNumbers baseballNumbers = new BaseballNumbers(baseballNumberList);
+        BaseballNumbers baseballNumbers = BaseballNumbersGenerator.getBaseballNumbers(baseballNumberList);
         this.baseballNumbers = baseballNumbers;
     }
 

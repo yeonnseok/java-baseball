@@ -11,7 +11,8 @@ public class BaseballNumbersGenerator {
 
     public static BaseballNumbers getBaseballNumbers(List<BaseballNumber> baseballNumberList) {
         try {
-            return new BaseballNumbers(baseballNumberList);
+            BaseballNumbers baseballNumbers = new BaseballNumbers(baseballNumberList);
+            return baseballNumbers;
         } catch (IllegalArgumentException e) {
             return getBaseballNumbers(getBaseballNumberList());
         }
