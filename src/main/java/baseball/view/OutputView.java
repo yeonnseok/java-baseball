@@ -16,6 +16,8 @@ public class OutputView {
 	private static final String BALL_MESSAGE = "%d 볼\n";
 	private static final String STRIKE_AND_BALL_MESSAGE = "%d 스트라이크 %d 볼\n";
 	private static final String ENTER_RESTART_OR_NOT_GUIDE_MESSAGE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+	private static final int FULL_STRIKE_COUNT = 3;
+	private static final int EMPTY_COUNT = 0;
 
 	private OutputView() {}
 
@@ -28,22 +30,22 @@ public class OutputView {
 	}
 
 	public static void printResult(int strike, int ball) {
-		if (strike == 3) {
+		if (strike == FULL_STRIKE_COUNT) {
 			System.out.println(WINNING_MESSAGE);
 			return;
 		}
 
-		if (strike == 0 && ball == 0) {
+		if (strike == EMPTY_COUNT && ball == EMPTY_COUNT) {
 			System.out.println(ZERO_MATCH_MESSAGE);
 			return;
 		}
 
-		if (ball == 0) {
+		if (ball == EMPTY_COUNT) {
 			System.out.printf(STRIKE_MESSAGE, strike);
 			return;
 		}
 
-		if (strike == 0) {
+		if (strike == EMPTY_COUNT) {
 			System.out.printf(BALL_MESSAGE, ball);
 			return;
 		}
