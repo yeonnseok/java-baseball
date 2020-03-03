@@ -21,6 +21,13 @@ public class SourceBallNumbers {
     }
 
     public static BallNumber getBall(int ballNumber) {
+        checkNumberRightRange(ballNumber);
         return sourceBallNumbers.get(ballNumber- INDEX_COORDINATOR);
+    }
+
+    private static void checkNumberRightRange(int ballNumber) {
+        if (ballNumber < MIN_NUMBER || ballNumber > MAX_NUMBER) {
+            throw new IllegalArgumentException("숫자는 1~9까지만 가능합니다.");
+        }
     }
 }
