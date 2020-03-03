@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static String inputUserNumber() {
+    public static int inputUserNumber() {
         OutputView.printInputBallNumberGuideMessage();
-        return SCANNER.nextLine();
+        return inputWithNumberValidation();
     }
 
     public static int inputRestartOrExitNumber() {
@@ -17,7 +17,8 @@ public class InputView {
 
     private static int inputWithNumberValidation() {
         try {
-            return Integer.parseInt(SCANNER.nextLine());
+            String trimmedInput = SCANNER.nextLine().trim();
+            return Integer.parseInt(trimmedInput);
         } catch (NumberFormatException e) {
             throw new NumberFormatException("숫자만 입력 가능합니다.");
         }
