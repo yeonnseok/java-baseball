@@ -3,6 +3,7 @@ package baseball.domain;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +38,14 @@ public class GameNumbersTest {
 		}).withMessage("null이 입력될 수 없습니다.");
 	}
 
+	@ParameterizedTest
+	@ValueSource(ints = {12, 1234})
+	void GameNumbers_정해진_길이가_아닌_정수_입력시_예외처리(int input) {
+		assertThatIllegalArgumentException().isThrownBy(() -> {
+			new GameNumbers(input);
+		}).withMessage("지정된 길이의 입력이 아닙니다.");
+	}
+
 	@Test
 	void GameNumbers_정해진_길이_초과의_입력시_예외처리() {
 		List<GameNumber> inputGameNumbers = Arrays.asList(
@@ -59,6 +68,13 @@ public class GameNumbersTest {
 		assertThatIllegalArgumentException().isThrownBy(() -> {
 			new GameNumbers(inputGameNumbers);
 		}).withMessage("지정된 길이의 입력이 아닙니다.");
+	}
+
+	@Test
+	void GameNumbers_중복된_숫자_입력시_예외처리() {
+		assertThatIllegalArgumentException().isThrownBy(() -> {
+			new GameNumbers(122);
+		});
 	}
 
 	@Test

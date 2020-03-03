@@ -1,9 +1,6 @@
 package baseball.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.IntStream;
 
 /**
@@ -20,28 +17,42 @@ public class GameNumbers {
 	private List<GameNumber> gameNumbers;
 
 	public GameNumbers(int inputIntGameNumbers) {
-		this(generate(inputIntGameNumbers));
+		this(generateBy(inputIntGameNumbers));
 	}
 
 	public GameNumbers(List<GameNumber> inputGameNumbers) {
 		Objects.requireNonNull(inputGameNumbers, "null이 입력될 수 없습니다.");
-		validate(inputGameNumbers);
+		validateLength(inputGameNumbers);
+		validateDuplication(inputGameNumbers);
 		this.gameNumbers = inputGameNumbers;
 	}
 
-	private static List<GameNumber> generate(int inputIntGameNumbers) {
+	private static List<GameNumber> generateBy(int inputIntGameNumbers) {
+		validateLength(inputIntGameNumbers);
 		List<GameNumber> inputGameNumbers = new ArrayList<>();
 		for (int i = 0, end = (int)(Math.log10(inputIntGameNumbers)+1); i < end; i++) {
-			inputGameNumbers.add(new GameNumber(inputIntGameNumbers % 10));
+			inputGameNumbers.add(0, new GameNumber(inputIntGameNumbers % 10));
 			inputIntGameNumbers = inputIntGameNumbers / 10;
 		}
-		Collections.reverse(inputGameNumbers);
 		return inputGameNumbers;
 	}
 
-	private void validate(List<GameNumber> inputGameNumbers) {
+	private static void validateLength(int inputIntGameNumbers) {
+		if ((int)(Math.log10(inputIntGameNumbers)+1) != GAME_NUMBERS_LENGTH) {
+			throw new IllegalArgumentException("지정된 길이의 입력이 아닙니다.");
+		}
+	}
+
+	private void validateLength(List<GameNumber> inputGameNumbers) {
 		if (inputGameNumbers.size() != GAME_NUMBERS_LENGTH) {
 			throw new IllegalArgumentException("지정된 길이의 입력이 아닙니다.");
+		}
+	}
+
+	private void validateDuplication(List<GameNumber> inputGameNumbers) {
+		Set<GameNumber> duplicatedGameNumber = new HashSet<>(inputGameNumbers);
+		if (duplicatedGameNumber.size() != GAME_NUMBERS_LENGTH) {
+			throw new IllegalArgumentException("입력한 숫자에 중복이 있습니다.");
 		}
 	}
 
@@ -57,7 +68,7 @@ public class GameNumbers {
 	}
 
 	public int getSamePositionGameNumberCount(final GameNumbers inputGameNumbers) {
-		return (int) IntStream.range(0, this.gameNumbers.size())
+		return (int) IntStream.range(0, GAME_NUMBERS_LENGTH)
 				.filter(index -> this.gameNumbers.get(index).equals(inputGameNumbers.gameNumbers.get(index)))
 				.count();
 	}

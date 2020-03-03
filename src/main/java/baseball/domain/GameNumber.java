@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import java.util.Objects;
+
 /**
  * 숫자 야구 게임의 숫자를 감싸는 래퍼 객체
  *
@@ -44,6 +46,6 @@ public class GameNumber {
 
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		return Objects.hash(this.gameNumber);
 	}
 }
