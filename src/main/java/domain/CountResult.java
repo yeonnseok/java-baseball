@@ -1,9 +1,6 @@
 package domain;
 
 public class CountResult {
-    private static final int ENTIRE_CORRECT = 3;
-    private static final int EMPTY_CORRECT = 0;
-
     private Strike strike;
     private Ball ball;
 
@@ -12,15 +9,15 @@ public class CountResult {
         this.ball = new Ball(BallNumbers.calculateBallCount(computerNo.getBallNumbers(), userNo.getBallNumbers()));
     }
 
-    public int getStrike() {
-        return strike.getStrike();
+    public Strike getStrike() {
+        return strike;
     }
 
-    public int getBall() {
-        return ball.getBall();
+    public Ball getBall() {
+        return ball;
     }
 
     public boolean isThreeStrike() {
-        return strike.getStrike() == ENTIRE_CORRECT && ball.getBall() == EMPTY_CORRECT;
+        return strike.isEntireCorrect() && ball.isEmptyCorrect();
     }
 }

@@ -1,6 +1,8 @@
 package view;
 
+import domain.Ball;
 import domain.CountResult;
+import domain.Strike;
 
 public class OutputView {
 
@@ -20,21 +22,21 @@ public class OutputView {
     }
 
     public static void printCountResultMessage(final CountResult countResult) {
-        int strike = countResult.getStrike();
-        int ball = countResult.getBall();
-        if (strike > 0 && ball > 0) {
-            System.out.println(String.format(BOTH_RESULT, strike, ball));
+        Strike strike = countResult.getStrike();
+        Ball ball = countResult.getBall();
+        if (strike.isExist() && ball.isExist()) {
+            System.out.println(String.format(BOTH_RESULT, strike.getStrike(), ball.getBall()));
             return;
         }
         printOneSideResult(strike, ball);
     }
 
-    private static void printOneSideResult(final int strike, final int ball) {
-        if (strike > 0) {
-            System.out.println(String.format(ONLY_STRIKE, strike));
+    private static void printOneSideResult(final Strike strike, final Ball ball) {
+        if (strike.isExist()) {
+            System.out.println(String.format(ONLY_STRIKE, strike.getStrike()));
             return;
         }
-        System.out.println(String.format(ONLY_BALL, ball));
+        System.out.println(String.format(ONLY_BALL, ball.getBall()));
     }
 
     public static void printCorrectBallsMessage() {
