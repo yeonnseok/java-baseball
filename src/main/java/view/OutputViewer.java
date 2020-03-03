@@ -1,6 +1,8 @@
 package view;
 
 public class OutputViewer {
+    private static final int NO_COUNT = 0;
+
     private OutputViewer() {
     }
 
@@ -16,7 +18,7 @@ public class OutputViewer {
     }
 
     private static void printStrike(int strikeCount) {
-        if (strikeCount == 0) {
+        if (strikeCount == NO_COUNT) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -26,7 +28,7 @@ public class OutputViewer {
     }
 
     private static void printBall(int ballCount) {
-        if (ballCount == 0) {
+        if (ballCount == NO_COUNT) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -36,7 +38,7 @@ public class OutputViewer {
     }
 
     private static void printNothing(int strikeCount, int ballCount) {
-        if (strikeCount == 0 && ballCount == 0) {
+        if (strikeCount == NO_COUNT && ballCount == NO_COUNT) {
             System.out.print("낫싱");
         }
     }

@@ -39,6 +39,6 @@ public class GameContinue {
     }
 
     public boolean playMore() {
-        return gameContinue == 1;
+        return this.gameContinue == 1;
     }
 }

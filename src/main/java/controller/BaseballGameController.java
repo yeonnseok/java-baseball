@@ -5,6 +5,8 @@ import view.InputViewer;
 import view.OutputViewer;
 
 public class BaseballGameController {
+    private static final int ALL_STRIKE = 3;
+
     public static void run(Computer computer) {
         BaseballNumbers computerNumbers;
         int strikeCount = 0;
@@ -15,7 +17,7 @@ public class BaseballGameController {
             strikeCount = ResultCalculator.calculateStrike(playerNumbers, computerNumbers);
             int ballCount = ResultCalculator.calculateBall(playerNumbers, computerNumbers);
             OutputViewer.printResult(strikeCount, ballCount);
-        } while (strikeCount != 3);
+        } while (strikeCount != ALL_STRIKE);
 
         checkEndGame(computer);
     }

@@ -3,6 +3,8 @@ package domain;
 import java.util.List;
 
 public class ResultCalculator {
+    private static final int BASEBALL_NUMBERS_SIZE = 3;
+
     private ResultCalculator() {
     }
 
@@ -17,7 +19,7 @@ public class ResultCalculator {
         List<BaseballNumber> playerNumberList = baseballNumbersWrapper.getPlayerNumberList();
         List<BaseballNumber> computerNumberList = baseballNumbersWrapper.getComputerNumberList();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BASEBALL_NUMBERS_SIZE; i++) {
             BaseballNumber playerNumber = playerNumberList.get(i);
             BaseballNumber computerNumber = computerNumberList.get(i);
             if (playerNumber.equals(computerNumber)) {
@@ -38,7 +40,7 @@ public class ResultCalculator {
     private static int getBallCount(int ballCount, BaseballNumbersWrapper baseballNumbersWrapper) {
         List<BaseballNumber> playerNumberList = baseballNumbersWrapper.getPlayerNumberList();
 
-        for (int i = 0; i < playerNumberList.size(); i++) {
+        for (int i = 0; i < BASEBALL_NUMBERS_SIZE; i++) {
             ballCount = compareBaseballNumber(ballCount, baseballNumbersWrapper, i);
         }
         return ballCount;
@@ -49,7 +51,7 @@ public class ResultCalculator {
         List<BaseballNumber> computerNumberList = baseballNumbersWrapper.getComputerNumberList();
 
         BaseballNumber playerNumber = playerNumberList.get(index);
-        for (int j = 0; j < computerNumberList.size(); j++) {
+        for (int j = 0; j < BASEBALL_NUMBERS_SIZE; j++) {
             BaseballNumber computerNumber = computerNumberList.get(j);
             boolean isSameIndex = index != j;
             boolean isSameBaseballNumber = playerNumber.equals(computerNumber);
