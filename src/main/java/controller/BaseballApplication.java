@@ -5,7 +5,6 @@ import view.InputView;
 import view.OutputView;
 
 public class BaseballApplication {
-
     public static void main(String[] args) {
         Flag restartFlag = Flag.RESTART;
         while (restartFlag != Flag.EXIT) {
@@ -57,9 +56,8 @@ public class BaseballApplication {
     private static void checkNotNumber(String input) {
         try {
             Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("숫자만 입력 가능합니다.");
         }
     }
-
 }
