@@ -4,12 +4,11 @@ import domain.*;
 import view.InputView;
 import view.OutputView;
 
-public class BaseballApplication {
-
+public class BaseballGame {
     private static final int RESTART = 1;
     private static final int EXIT = 2;
 
-    public static void main(String[] args) {
+    public void play () {
         Flag restartFlag = Flag.RESTART;
         while (restartFlag != Flag.EXIT) {
             ComputerNo computerNo = new ComputerNo(new RandomBallNumberGenerator());
