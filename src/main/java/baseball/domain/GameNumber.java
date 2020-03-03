@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import baseball.view.OutputView;
+
 import java.util.Objects;
 
 /**
@@ -14,11 +16,15 @@ public class GameNumber {
 	private static final int MIN_NUMBER = 1;
 	private static final int MAX_NUMBER = 9;
 
-	private final int gameNumber;
+	private int gameNumber;
 
 	public GameNumber(final int inputGameNumber) {
-		validate(inputGameNumber);
-		this.gameNumber = inputGameNumber;
+		try {
+			validate(inputGameNumber);
+			this.gameNumber = inputGameNumber;
+		} catch (RuntimeException e) {
+			OutputView.printExceptionMessage(e);
+		}
 	}
 
 	private void validate(final int inputGameNumber) { // TODO: 2020/03/03 예외처리를 호출하는 곳에서 바로
