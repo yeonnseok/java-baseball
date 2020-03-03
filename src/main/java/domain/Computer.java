@@ -1,23 +1,15 @@
 package domain;
 
-import java.util.List;
-
 public class Computer {
     private BaseballNumbers baseballNumbers;
 
     public Computer() {
-        this(BaseballNumbersGenerator.getBaseballNumberList());
-    }
-
-    public Computer(List<BaseballNumber> baseballNumberList) {
-        BaseballNumbers baseballNumbers = BaseballNumbersGenerator.getBaseballNumbers(baseballNumberList);
-        this.baseballNumbers = baseballNumbers;
+        this.baseballNumbers = BaseballNumbersGenerator.generateBaseballNumbers();
     }
 
     public boolean isContinue(GameContinue gameContinue) {
         if (gameContinue.playMore()) {
-            List<BaseballNumber> baseballNumberList = BaseballNumbersGenerator.getBaseballNumberList();
-            this.baseballNumbers = BaseballNumbersGenerator.getBaseballNumbers(baseballNumberList);
+            this.baseballNumbers = BaseballNumbersGenerator.generateBaseballNumbers();
             return true;
         }
         return false;
