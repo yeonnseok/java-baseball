@@ -34,8 +34,8 @@ public class BaseballGameController {
 
     private static void checkEndGame(Computer computer) {
         GameContinue gameContinue = getGameContinue();
-        if (computer.isContinue(gameContinue)) {
-            run(computer);
+        if (gameContinue.playMore()) {
+            run(new Computer());
         }
     }
 
