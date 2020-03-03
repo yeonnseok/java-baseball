@@ -3,7 +3,7 @@ package domain;
 import java.util.Map;
 
 public class GameResult {
-    public static final int THREE_STRIKE = 3;
+    private static final int THREE_STRIKE = 3;
 
     private Map<BallMatch, Integer> gameResult;
 

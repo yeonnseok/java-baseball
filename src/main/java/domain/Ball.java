@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Ball {
-    public static final int MIN_BALL_NUMBER = 1;
-    public static final int MAX_BALL_NUMBER = 9;
+    private static final int MIN_BALL_NUMBER = 1;
+    private static final int MAX_BALL_NUMBER = 9;
     private static Map<Integer, Ball> ballCreator = new HashMap<>();
 
     private int ball;

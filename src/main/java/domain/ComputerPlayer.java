@@ -5,11 +5,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class ComputerPlayer {
-    public static final int BALLS_SIZE = 3;
+    private static final int BALLS_SIZE = 3;
+
     private List<Ball> computerBalls;
 
     public ComputerPlayer(Generator randomNumberGenerator) {
-      this.computerBalls = BallsFactory.createComputerBalls(randomNumberGenerator);
+        this.computerBalls = BallsFactory.createComputerBalls(randomNumberGenerator);
     }
 
     public void matchResult(Map<BallMatch, Integer> gameResult, Ball ball, int idx) {
@@ -21,7 +22,7 @@ public class ComputerPlayer {
         }
     }
 
-    private void countStrike(Map<BallMatch,Integer> gameResult, boolean havingBall, boolean sameLocation) {
+    private void countStrike(Map<BallMatch, Integer> gameResult, boolean havingBall, boolean sameLocation) {
         if (havingBall && sameLocation) {
             gameResult.put(BallMatch.STRIKE, gameResult.get(BallMatch.STRIKE) + 1);
         }

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class BallsFactory {
-
     public static final int BALLS_SIZE = 3;
 
     public static List<Ball> createPlayerBalls(String playerNumbers) {

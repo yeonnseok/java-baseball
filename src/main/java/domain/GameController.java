@@ -7,15 +7,14 @@ public class GameController {
     public static void run() {
         Generator randomNumberGenerator = new RandomNumberGenerator();
         ComputerPlayer computerPlayer = new ComputerPlayer(randomNumberGenerator);
-        ThreeStrikeJudge judge = new ThreeStrikeJudge();
-        while (!judge.isThreeStrike()) {
-            judge.clearStrike();
+        boolean threeStrike = false;
+        do {
             OutputView.printInputPlayerNumbers();
             Player player = createPlayer();
             GameResult gameResult = new GameResult(player, computerPlayer);
             OutputView.printGameResult(gameResult.getResult());
-            judge.countStrike(gameResult);
-        }
+            threeStrike = gameResult.isThreeStrike();
+        } while(!threeStrike);
         OutputView.printEnd();
     }
 

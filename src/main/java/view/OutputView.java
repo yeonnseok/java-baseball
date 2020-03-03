@@ -1,13 +1,11 @@
 package view;
 
 import domain.BallMatch;
-import domain.GameResult;
 
-import java.util.Arrays;
 import java.util.Map;
 
 public class OutputView {
-    public static final String SPACE = " ";
+    private static final String SPACE = " ";
 
     public static void printInputPlayerNumbers() {
         System.out.print("숫자를 입력해주세요 : ");

@@ -34,7 +34,7 @@ public class Player {
     public Map<BallMatch, Integer> createGameResult(ComputerPlayer computerBalls) {
         Map<BallMatch, Integer> gameResult = new HashMap<>();
         initGameResult(gameResult);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BALLS_SIZE; i++) {
             computerBalls.matchResult(gameResult, playerBalls.get(i), i);
         }
         return gameResult;

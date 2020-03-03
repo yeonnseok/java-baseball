@@ -3,11 +3,11 @@ package view;
 import java.util.Scanner;
 
 public class InputView {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static String inputPlayerNumbers() {
         try {
-            return validateNumber(scanner.nextLine());
+            return validateNumber(SCANNER.nextLine());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             return inputPlayerNumbers();
@@ -16,7 +16,7 @@ public class InputView {
 
     public static String inputRestartGame() {
         try {
-            String restart = validateNumber(scanner.nextLine());
+            String restart = validateNumber(SCANNER.nextLine());
             checkValidNumber(restart);
             return restart;
         } catch (IllegalArgumentException e) {

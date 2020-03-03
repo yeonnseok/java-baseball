@@ -24,9 +24,9 @@ public class PlayerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "12", "1234", "12345"})
-    void PlayerBalls가_3개의_숫자가_아닌_경우_예외_처리() {
+    void PlayerBalls가_3개의_숫자가_아닌_경우_예외_처리(String testNumber) {
         assertThatThrownBy(() -> {
-            new Player("1234");
+            new Player(testNumber);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("야구 게임의 숫자는 3개로 이루어져있습니다.");
     }
