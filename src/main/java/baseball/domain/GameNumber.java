@@ -16,12 +16,12 @@ public class GameNumber {
 
 	private final int gameNumber;
 
-	public GameNumber(final int inputGameNumber) {
+	public GameNumber(final int inputGameNumber) { // TODO: 2020/03/03 정적 팩토리 메서드로
 		validate(inputGameNumber);
 		this.gameNumber = inputGameNumber;
 	}
 
-	private void validate(final int inputGameNumber) {
+	private void validate(final int inputGameNumber) { // TODO: 2020/03/03 예외처리를 호출하는 곳에서 바로
 		if (inputGameNumber < MIN_NUMBER || inputGameNumber > MAX_NUMBER) {
 			throw new IllegalArgumentException("GameNumber의 범위를 초과한 입력이 있습니다.");
 		}

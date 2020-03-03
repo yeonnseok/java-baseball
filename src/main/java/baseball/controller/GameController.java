@@ -38,7 +38,8 @@ public class GameController {
 
 	private boolean isRestartGame() {
 		OutputView.askRestartGame();
-		GameRestartChecker gameRestartChecker = new GameRestartChecker(InputView.getPlayAgainOrNot());
+		int inputStatus =  InputView.getPlayAgainOrNot();
+		GameRestartChecker gameRestartChecker = GameRestartChecker.findGameRestartChecker(inputStatus);
 		return gameRestartChecker.isRestart();
 	}
 }
