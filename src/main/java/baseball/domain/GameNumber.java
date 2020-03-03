@@ -27,6 +27,10 @@ public class GameNumber {
 		}
 	}
 
+	public int getGameNumber() {
+		return this.gameNumber;
+	}
+
 	@Override
 	public String toString() {
 		return Integer.toString(this.gameNumber);
