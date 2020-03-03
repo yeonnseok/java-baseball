@@ -32,10 +32,12 @@ public class GameNumber {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null || getClass() != obj.getClass())
+		}
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
+		}
 		GameNumber that = (GameNumber)obj ;
 		return this.gameNumber == that.gameNumber;
 	}
