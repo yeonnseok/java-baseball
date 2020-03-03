@@ -3,6 +3,9 @@ package baseballGame;
 import domain.BallNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -25,20 +28,22 @@ public class BallNumberTest {
                 .hasMessage("숫자만 입력가능합니다.");
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("빈문자열이나 공백이 입력되는 지 확인")
-    void checkEmptyNumberTest(){
+    @EmptySource
+    void checkEmptyNumberTest(String input){
         assertThatThrownBy(() -> {
-            new BallNumber("");
+            new BallNumber(input);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자가 입력되지 않았습니다.");
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("null 이 입력되는 지 확인")
-    void checkNullNumberTest(){
+    @NullSource
+    void checkNullNumberTest(String input){
         assertThatThrownBy(() -> {
-            new BallNumber(null);
+            new BallNumber(input);
         }).isInstanceOf(NullPointerException.class)
                 .hasMessage("숫자가 입력되지 않았습니다.");
     }
