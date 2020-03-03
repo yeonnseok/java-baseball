@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,8 @@ public class Player {
         Map<BallMatch, Integer> gameResult = new HashMap<>();
         initGameResult(gameResult);
         for (int i = 0; i < BALLS_SIZE; i++) {
-            computerBalls.matchResult(gameResult, playerBalls.get(i), i);
+            Ball playerBall = playerBalls.get(i);
+            computerBalls.matchResult(gameResult, playerBall, i);
         }
         return gameResult;
     }

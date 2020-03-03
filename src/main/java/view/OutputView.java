@@ -7,6 +7,8 @@ import java.util.Map;
 public class OutputView {
     private static final String SPACE = " ";
 
+    private OutputView() {}
+
     public static void printInputPlayerNumbers() {
         System.out.print("숫자를 입력해주세요 : ");
     }

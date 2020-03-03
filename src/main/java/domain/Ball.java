@@ -34,7 +34,9 @@ public class Ball {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Ball ball1 = (Ball) o;
         return ball == ball1.ball;
     }
