@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * 날짜 : 2020/03/03
  */
+@SuppressWarnings("NonAsciiCharacters")
 public class GameNumberRepositoryTest {
 	@Test
 	void createGameNumbers_1부터_9까지의_수만_생성되는지_확인() {

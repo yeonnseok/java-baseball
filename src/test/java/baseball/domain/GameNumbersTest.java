@@ -18,8 +18,8 @@ import static org.assertj.core.api.Assertions.*;
  * <p>
  * 날짜 : 2020/03/02
  */
+@SuppressWarnings("NonAsciiCharacters")
 public class GameNumbersTest {
-
 	@Test
 	void GameNumbers_List_이용_생성자_올바른_동작_확인() {
 		assertThat(new GameNumbers(GameNumberRepository.createGameNumbers())).isInstanceOf(GameNumbers.class);

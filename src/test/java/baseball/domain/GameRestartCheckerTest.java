@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
  * <p>
  * 날짜 : 2020/03/02
  */
+@SuppressWarnings("NonAsciiCharacters")
 public class GameRestartCheckerTest {
-
 	@Test
 	void GameRestartChecker_생성자_올바른_동작_확인() {
 		assertThat(new GameRestartChecker(1)).isInstanceOf(GameRestartChecker.class);
