@@ -78,7 +78,7 @@ public class GameNumbersTest {
 	}
 
 	@Test
-	void getContainingGameNumbersCount_2개_겹칠시_2_반환() {
+	void getContainingGameNumbersCount_2개_겹칠시_2Ball을_의미() {
 		GameNumbers gameNumbers = new GameNumbers(123);
 		GameNumbers targetNumbers = new GameNumbers(234);
 
@@ -86,7 +86,7 @@ public class GameNumbersTest {
 	}
 
 	@Test
-	void getSamePositionGameNumberCount_2개_겹칠시_2반환() {
+	void getSamePositionGameNumberCount_2개_겹칠시_2Strike를_의미() {
 		GameNumbers gameNumbers = new GameNumbers(123);
 		GameNumbers targetNumbers = new GameNumbers(423);
 
