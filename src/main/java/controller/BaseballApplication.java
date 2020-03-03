@@ -33,7 +33,7 @@ public class BaseballApplication {
         try {
             return new UserNo(new ManualBallNumberGenerator(InputView.inputUserNumber()));
         } catch (IllegalArgumentException | NullPointerException e) {
-            OutputView.printExceptionMessage(e);
+            OutputView.printExceptionMessage(e.getMessage());
             return createUserWithInputValidation();
         }
     }
@@ -44,7 +44,7 @@ public class BaseballApplication {
             checkFlagRange(input);
             return Flag.findFlag(input);
         } catch (IllegalArgumentException | NullPointerException e) {
-            OutputView.printExceptionMessage(e);
+            OutputView.printExceptionMessage(e.getMessage());
             return inputRestartFlagWithValidation();
         }
     }

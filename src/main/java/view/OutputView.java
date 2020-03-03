@@ -11,8 +11,8 @@ public class OutputView {
     private static final String CORRECT_BALLS_MESSAGE = "3개의숫자를모두맞히셨습니다!게임종료";
     private static final String RESTART_OR_EXIT_GUIDE_MESSAGE = "게임을새로시작하려면1,종료하려면2를입력하세요.";
 
-    public static void printExceptionMessage(RuntimeException e) {
-        System.out.println(e.getMessage());
+    public static void printExceptionMessage(String message) {
+        System.out.println(message);
     }
 
     public static void printInputBallNumberGuideMessage() {

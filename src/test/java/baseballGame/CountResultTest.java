@@ -13,8 +13,8 @@ public class CountResultTest {
     @Test
     @DisplayName("스트라이크와 볼 갯수 확인")
     void calculateStrikeCountTest() {
-        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator("456"));
-        UserNo userNo = new UserNo(new ManualBallNumberGenerator("654"));
+        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator(456));
+        UserNo userNo = new UserNo(new ManualBallNumberGenerator(654));
 
         CountResult countResult = new CountResult(computerNo, userNo);
         assertThat(countResult.getStrike()).isEqualTo(1);
@@ -24,8 +24,8 @@ public class CountResultTest {
     @Test
     @DisplayName("3 스트라이크인지 확인")
     void isThreeStrikeTest() {
-        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator("456"));
-        UserNo userNo = new UserNo(new ManualBallNumberGenerator("456"));
+        ComputerNo computerNo = new ComputerNo(new ManualBallNumberGenerator(456));
+        UserNo userNo = new UserNo(new ManualBallNumberGenerator(654));
 
         CountResult countResult = new CountResult(computerNo, userNo);
         assertThat(countResult.isThreeStrike()).isTrue();
