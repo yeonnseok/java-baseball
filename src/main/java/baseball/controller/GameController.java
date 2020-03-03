@@ -30,9 +30,9 @@ public class GameController {
 		do {
 			OutputView.askPlayerGameNumber();
 			playerGameNumbers = new GameNumbers(InputView.getPlayerGameNumbers());
-			int strike = targetGameNumbers.getSamePositionGameNumberCount(playerGameNumbers);
-			int ball = targetGameNumbers.getContainingGameNumbersCount(playerGameNumbers);
-			OutputView.printResult(strike, ball - strike);
+			int strikeCount = targetGameNumbers.getSamePositionGameNumberCount(playerGameNumbers);
+			int totalContainingCount = targetGameNumbers.getContainingGameNumbersCount(playerGameNumbers);
+			OutputView.printResult(strikeCount, totalContainingCount - strikeCount);
 		} while (targetGameNumbers.getSamePositionGameNumberCount(playerGameNumbers) != TARGET_STRIKE_COUNT);
 	}
 
