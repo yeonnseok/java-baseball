@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class BallNumbers {
     private static final int INITIAL_COUNT = 0;
@@ -14,37 +15,15 @@ public class BallNumbers {
     }
 
     public static int calculateStrikeCount(final BallNumbers computer, final BallNumbers user) {
-        int count = INITIAL_COUNT;
-        for (int index = 0; index < BALL_SIZE; index ++) {
-            count = increaseCountWhenStrike(computer, user, count, index);
-        }
-        return count;
-    }
-
-    private static int increaseCountWhenStrike(BallNumbers computer, BallNumbers user, int count, int index) {
-        if (isStrikeCondition(computer, user, index)) {
-            count ++;
-        }
-        return count;
-    }
-
-    private static boolean isStrikeCondition(BallNumbers computer, BallNumbers user, int index) {
-        return computer.getBall(index).equals(user.getBall(index));
+        return (int)IntStream.range(INITIAL_COUNT, BALL_SIZE)
+                .filter(index -> computer.getBall(index).equals(user.getBall(index)))
+                .count();
     }
 
     public static int calculateBallCount(final BallNumbers computer, final BallNumbers user) {
-        int count = INITIAL_COUNT;
-        for (int index = 0; index < BALL_SIZE; index ++) {
-            count = increaseCountWhenBall(computer, user, count, index);
-        }
-        return count;
-    }
-
-    private static int increaseCountWhenBall(BallNumbers computer, BallNumbers user, int count, int index) {
-        if (isBallCondition(computer, user, index)) {
-            count ++;
-        }
-        return count;
+        return (int)IntStream.range(INITIAL_COUNT, BALL_SIZE)
+                .filter(index -> isBallCondition(computer, user, index))
+                .count();
     }
 
     private static boolean isBallCondition(BallNumbers computer, BallNumbers user, int index) {
