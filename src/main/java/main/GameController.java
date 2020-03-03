@@ -1,5 +1,6 @@
-package domain;
+package main;
 
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -7,7 +8,7 @@ public class GameController {
     public static void run() {
         Generator randomNumberGenerator = new RandomNumberGenerator();
         ComputerPlayer computerPlayer = new ComputerPlayer(randomNumberGenerator);
-        boolean threeStrike = false;
+        boolean threeStrike;
         do {
             OutputView.printInputPlayerNumbers();
             Player player = createPlayer();

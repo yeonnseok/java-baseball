@@ -1,5 +1,6 @@
 package domain;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PlayerTest {
     @Test
+    @DisplayName("test create PlayerBalls")
     void PlayerBalls가_제대로_생성되는지_테스트() {
         List<Ball> testBalls = new ArrayList<>();
         testBalls.add(Ball.createBall(1));
@@ -24,6 +26,7 @@ public class PlayerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "12", "1234", "12345"})
+    @DisplayName("validate playerBalls Range")
     void PlayerBalls가_3개의_숫자가_아닌_경우_예외_처리(String testNumber) {
         assertThatThrownBy(() -> {
             new Player(testNumber);
@@ -32,6 +35,7 @@ public class PlayerTest {
     }
 
     @Test
+    @DisplayName("validate Duplicated Numbers")
     void PlayerBalls가_중복이_있는_경우_예외_처리() {
         assertThatThrownBy(() -> {
             new Player("112");
@@ -40,6 +44,7 @@ public class PlayerTest {
     }
 
     @Test
+    @DisplayName("test return game result")
     void 게임_결과를_제대로_반환하는지_테스트() {
         Map<BallMatch, Integer> testResult = new HashMap<>();
         testResult.put(BallMatch.STRIKE, 2);

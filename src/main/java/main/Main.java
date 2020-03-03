@@ -1,6 +1,5 @@
 package main;
 
-import domain.GameController;
 import view.InputView;
 import view.OutputView;
 
@@ -17,12 +16,6 @@ public class Main {
     private static boolean inputRestart() {
         OutputView.printRestartGame();
         String restart = InputView.inputRestartGame();
-        if (RESTART.equals(restart)) {
-            return true;
-        }
-        if (STOP_GAME.equals(restart)) {
-            return false;
-        }
-        return false;
+        return RESTART.equals(restart);
     }
 }
