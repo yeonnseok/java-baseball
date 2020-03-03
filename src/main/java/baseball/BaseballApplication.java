@@ -17,7 +17,7 @@ public class BaseballApplication {
 		try {
 			GameController gameController = new GameController();
 			gameController.playBall();
-		} catch (Exception e) {
+		} catch (NullPointerException | IllegalArgumentException e) {
 			OutputView.printExceptionMessage(e);
 		}
 	}
