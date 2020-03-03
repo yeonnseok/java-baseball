@@ -44,7 +44,7 @@ public class PlayerBaseballNumbersGenerator {
     }
 
     private static void parseInteger(String[] inputs, List<Integer> numbers) {
-        for (int i = 0; i < inputs.length; i++) {
+        for (int i = 0; i < MAX_BASEBALL_NUMBERS_LENGTH; i++) {
             int convertInteger = Integer.parseInt(inputs[i]);
             numbers.add(convertInteger);
         }

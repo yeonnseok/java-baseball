@@ -3,7 +3,6 @@ package domain;
 import java.util.List;
 
 public class BaseballNumbersGenerator {
-
     private BaseballNumbersGenerator() {
     }
 
